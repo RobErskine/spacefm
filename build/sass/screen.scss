@@ -1,1 +1,30 @@
 @import "partials/base";
+
+body{
+	position:relative;
+	overflow:hidden;
+	background-image:image-url("static.gif");
+}
+
+nav{
+	height:auto;
+	padding:20px;
+	@include position(absolute, auto 0px 0px 0px);
+	background-color:rgba(#262626, .9);
+	z-index:10;
+	.info{
+		color:#fff;
+		h2{
+			font-family:$font-headline;
+		}
+		h3{
+			font-family: $font-body;
+		}
+	}
+}
+
+iframe{
+	min-height:130%;
+	min-width:150%;
+	@include position(absolute, -10% -10% -10% -30%);
+}
