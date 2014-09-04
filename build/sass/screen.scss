@@ -7,18 +7,78 @@ body{
 }
 
 nav{
-	height:auto;
-	padding:20px;
+	height: auto;
+	@include transition(all .5s ease-in-out);
 	@include position(absolute, auto 0px 0px 0px);
-	background-color:rgba(#262626, .9);
 	z-index:10;
 	.info{
-		color:#fff;
+		@include linear-gradient(#262626, darken(#262626,5%));
+		position:relative;
+		z-index:2;
+		color:#dadada;
+		text-align:center;
+		padding:1em;
 		h2{
 			font-family:$font-headline;
+			font-size:2em;
 		}
 		h3{
 			font-family: $font-body;
+			font-size:1.25em;
+		}
+	}
+	.meta{
+		@extend %default-transition;
+		@include position(absolute, 0px 0px 0px 0px);
+		z-index:1;
+		background-color:rgba(#262626, .8);
+		padding:10px;
+		img{
+			width:100px;
+			height:auto;
+			display:block;
+			margin:0 auto;
+		}
+		a{
+			position:relative;
+			margin:0 auto;
+			width:100px;
+			display:block;
+			overflow:hidden;
+			&:before{
+				content:" ";
+				@include position(absolute, -30px -30px -30px -30px);
+				@include transform(rotate(100deg));
+				@include transition(all .5s ease-in-out);
+				display:block;
+				margin-left:-300px;
+				background-color:rgba(#0077da,.8);
+			}
+			&:after{
+				content:"Buy song";
+				@extend %absolute-middle;
+				font-size:18px;
+				text-align:center;
+				color:#dadada;
+				font-family:$font-headline;
+				@include opacity(0);
+				@extend %default-transition;
+				@include transition-delay(.4s);
+			}
+			&:hover{
+				&:before{
+					margin-left:0px;
+				}
+				&:after{
+					@include opacity(1);
+				}
+
+			}
+		}
+	}
+	&.image-artwork:hover{
+		.meta{
+			top:-120px;	
 		}
 	}
 }
@@ -27,4 +87,14 @@ iframe{
 	min-height:130%;
 	min-width:150%;
 	@include position(absolute, -10% -10% -10% -30%);
+}
+
+@media all and(min-width:768px){
+	.no-touch{
+		nav{
+			.info{
+				font-size:120%;
+			}
+		}
+	}
 }

@@ -25,6 +25,11 @@ $(function(){
 		"74376031",		// West One Music Group | washed away
 		"6430227",		// daft punk | something about us
 		"15145917",		// thieves like us | flow my tears, the police man said
+		"21682519",		// slohmo | anywhere but here
+		"115522159",	// fourtet | unicorn
+		"30709985",		// fourtet | moma
+		"156821162",	// bonobo | duels
+		"132999269",	// bonobo | antenna
 	];
 
 	var playNewTrack = function(trackID){ // play that funky music space boy
@@ -46,6 +51,22 @@ $(function(){
 
 					$('#title').empty().html(data.title);
 					$('#artist').empty().html(data.user.username);
+
+					if(data.artwork_url != null){
+						$('#artwork').append('<img src="' + data.artwork_url + '">');
+						$('nav').addClass('image-artwork');
+						if( data.purchase_url != null){
+							$('#artwork img').wrap('<a href="' + data.purchase_url + '">');
+						}
+					}
+					else{
+						$('#artwork').remove("img");
+						$('#artwork').remove("a");
+						$('nav').removeClass('image-artwork');
+					}
+
+					
+					$('#artwork a').attr("href", data.purchase_url);
 				
 					$('nav').on("click",function(){
 						console.log("pausing/playing");
