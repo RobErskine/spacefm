@@ -4,6 +4,7 @@ body{
 	position:relative;
 	overflow:hidden;
 	background-image:image-url("static.gif");
+	background-size:cover;
 }
 
 nav{
@@ -21,10 +22,26 @@ nav{
 		h2{
 			font-family:$font-headline;
 			font-size:2em;
+			padding-bottom:.2em;
 		}
 		h3{
 			font-family: $font-body;
 			font-size:1.25em;
+		}
+	}
+	.about{
+		display:none;
+		p,a{
+			font-family:$font-sans;
+			color:#4d4d4d;
+		}
+		p{
+			font-size:1em;
+		}
+		a{
+			text-decoration:none;
+			border-bottom:1px solid;
+			padding-bottom:1px;
 		}
 	}
 	.meta{
@@ -48,10 +65,10 @@ nav{
 			&:before{
 				content:" ";
 				@include position(absolute, -30px -30px -30px -30px);
-				@include transform(rotate(100deg));
+				@include transform(rotate(110deg));
 				@include transition(all .5s ease-in-out);
 				display:block;
-				margin-left:-300px;
+				margin-left:-310px;
 				background-color:rgba(#0077da,.8);
 			}
 			&:after{
@@ -94,6 +111,16 @@ iframe{
 		nav{
 			.info{
 				font-size:120%;
+			}
+			.about{
+				display:block;
+				.me,.inspired{
+					@include position(absolute, auto auto 10px 10px)
+				}
+				.inspired{
+					left:auto;
+					right:10px;
+				}
 			}
 		}
 	}

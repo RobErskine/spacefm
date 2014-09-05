@@ -24,13 +24,22 @@
     </head>
     <body>
 
-        <iframe id="video-player" width="560" height="315" volume="0" src="//www.youtube.com/embed/_uHHcax_fqE?autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+        <!-- <iframe id="video-player" width="560" height="315" volume="0" src="//www.youtube.com/embed/_uHHcax_fqE?autoplay=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe> -->
         
 
         <nav>
             <div class="info">
                 <h2 id="title"></h2>
                 <h3 id="artist"></h3>
+                <div class="controls">
+                    <button id="play-pause">Play / Pause</button>
+                    <button id="skip">Skip </button>
+                </div>
+
+                <div class="about">
+                    <p class="me">Built by @<a data-popup="true" href="http://twitter.com/erskinerob">erskinerob</a></p>
+                    <p class="inspired">Inspired by <a data-popup="true" href="http://poolside.fm">poolside.fm</a></p>
+                </div>
             </div>
             <div class="meta" id="artwork">
             </div>

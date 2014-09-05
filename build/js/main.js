@@ -4,8 +4,7 @@ $(function(){
 
 	// sound cloud integration
 	SC.initialize({
-		client_id: clientID,
-		redirect_uri: 'http://google.com'
+		client_id: clientID
 	});
 
 	var tracks = [		// list of all tracks 
@@ -30,7 +29,18 @@ $(function(){
 		"30709985",		// fourtet | moma
 		"156821162",	// bonobo | duels
 		"132999269",	// bonobo | antenna
+		"166262342",	// millionyoung | dire, dire docks
+		"164975479",	// millionyoung | Fade Out (telescope thieves remix)
+		"138156927",	// millionyoung | captn hook 
+		"156878091",	// tennyson | lay-by
+		"155226337",	// avidd | ??????
+		"148393347",	// blackbird blackbird
+		"114283628",	// slow magic | gold panda - brazil remix
 	];
+
+	var i = 0;
+
+	console.log(tracks.length);
 
 	var playNewTrack = function(trackID){ // play that funky music space boy
 		$.ajax({
@@ -48,6 +58,8 @@ $(function(){
 					});
 
 					console.log(data);
+
+					$('#artwork a, #artwork img').remove();
 
 					$('#title').empty().html(data.title);
 					$('#artist').empty().html(data.user.username);
@@ -68,16 +80,27 @@ $(function(){
 					
 					$('#artwork a').attr("href", data.purchase_url);
 				
-					$('nav').on("click",function(){
+					$('#play-pause').on("click",function(){
 						console.log("pausing/playing");
 						sound.togglePause();
 					});
+
+					$('#skip').on("click", function(){
+						console.log("skipping song");
+						sound.destruct();
+						setTimeout(function(){
+							playMusic();
+						}, 500);
+					});
+					i++;
+					console.log(i);
 
 				});
 			}
 		});
 	};
 
+	
 	playMusic();
 
 	function playMusic(){
@@ -87,6 +110,7 @@ $(function(){
 	}
 
 	// control for videos
+	/*
 	var videos = [
 		["zez8Dza-TwQ", "2000"],
 		["C8tEK-0nybo", "2000"],
@@ -104,6 +128,7 @@ $(function(){
 		//$('#video-player').attr("src", stock);
 		player.mute();
 	}, 30000);
+	*/
 
 	function shuffle(sourceArray) {
 		for (var n = 0; n < sourceArray.length - 1; n++) {
