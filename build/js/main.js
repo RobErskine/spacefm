@@ -75,7 +75,7 @@ $(function(){
 						$('#artwork').append('<img src="' + data.artwork_url + '">');
 						$('nav').addClass('image-artwork');
 						if( data.purchase_url != null){
-							$('#artwork img').wrap('<a href="' + data.purchase_url + '">');
+							$('#artwork img').wrap('<a data-popup="true" href="' + data.purchase_url + '">');
 						}
 					}
 					else{
