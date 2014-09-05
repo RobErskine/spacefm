@@ -25,17 +25,16 @@ $(function() {
                         onfinish: function() {
                             console.log("song over"), sound.destruct(), playMusic();
                         }
-                    }), console.log(data), $("#artwork a, #artwork img").remove(), $("#title").empty().html(data.title), 
-                    $("#artist").empty().html(data.user.username), null != data.artwork_url ? ($("#artwork").append('<img src="' + data.artwork_url + '">'), 
+                    }), console.log(data), $("#artwork a, #artwork img").remove(), $("#title").empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + "</a>"), 
+                    $("#artist").empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + "</a>"), 
+                    null != data.artwork_url ? ($("#artwork").append('<img src="' + data.artwork_url + '">'), 
                     $("nav").addClass("image-artwork"), null != data.purchase_url && $("#artwork img").wrap('<a href="' + data.purchase_url + '">')) : ($("#artwork").remove("img"), 
                     $("#artwork").remove("a"), $("nav").removeClass("image-artwork")), $("#artwork a").attr("href", data.purchase_url), 
                     $("#play-pause").on("click", function() {
                         console.log("pausing/playing"), sound.togglePause();
                     }), $("#skip").on("click", function() {
-                        console.log("skipping song"), sound.destruct(), setTimeout(function() {
-                            playMusic();
-                        }, 500);
-                    }), i++, console.log(i);
+                        console.log("skipping song"), sound.destruct(), playMusic();
+                    }), i++, console.log(i), $("nav").addClass("song-loaded");
                 });
             }
         });

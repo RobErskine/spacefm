@@ -48,6 +48,7 @@ $(function(){
 			type: 'get',
 			dataType: 'json',
 			success: function(data){
+
 				SC.stream("/tracks/"+trackID, function(sound){
 					sound.play({
 						onfinish: function(){
@@ -61,8 +62,8 @@ $(function(){
 
 					$('#artwork a, #artwork img').remove();
 
-					$('#title').empty().html(data.title);
-					$('#artist').empty().html(data.user.username);
+					$('#title').empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + '</a>');
+					$('#artist').empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + '</a>');
 
 					if(data.artwork_url != null){
 						$('#artwork').append('<img src="' + data.artwork_url + '">');
@@ -77,7 +78,6 @@ $(function(){
 						$('nav').removeClass('image-artwork');
 					}
 
-					
 					$('#artwork a').attr("href", data.purchase_url);
 				
 					$('#play-pause').on("click",function(){
@@ -88,12 +88,13 @@ $(function(){
 					$('#skip').on("click", function(){
 						console.log("skipping song");
 						sound.destruct();
-						setTimeout(function(){
-							playMusic();
-						}, 500);
+						playMusic();
 					});
+
 					i++;
 					console.log(i);
+
+					$('nav').addClass('song-loaded');
 
 				});
 			}

@@ -10,15 +10,23 @@ body{
 nav{
 	height: auto;
 	@include transition(all .5s ease-in-out);
-	@include position(absolute, auto 0px 0px 0px);
+	@include position(absolute, auto 0px -200px 0px);
+	@extend %default-transition;
 	z-index:10;
 	.info{
 		@include linear-gradient(#262626, darken(#262626,5%));
 		position:relative;
 		z-index:2;
-		color:#dadada;
 		text-align:center;
 		padding:1em;
+		a{
+			color:#dadada;
+			text-decoration: none;
+			@extend %default-transition;
+			&:hover{
+				color:#fff;
+			}
+		}
 		h2{
 			font-family:$font-headline;
 			font-size:2em;
@@ -33,7 +41,8 @@ nav{
 		display:none;
 		p,a{
 			font-family:$font-sans;
-			color:#4d4d4d;
+			color:#404040;
+			@extend %default-transition;
 		}
 		p{
 			font-size:1em;
@@ -97,6 +106,16 @@ nav{
 		.meta{
 			top:-120px;	
 		}
+	}
+	&:hover{
+		.about{
+			p,a{
+				color:#737373;
+			}
+		}
+	}
+	&.song-loaded{
+		bottom:0px;
 	}
 }
 
