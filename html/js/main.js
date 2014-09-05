@@ -12,9 +12,7 @@ $(function() {
     SC.initialize({
         client_id: clientID
     });
-    var tracks = [ "164773080", "165964904", "22454575", "155143944", "130679842", "86282419", "56511482", "11295149", "135397912", "120452997", "157838635", "89421686", "74376031", "6430227", "15145917", "21682519", "115522159", "30709985", "156821162", "132999269", "166262342", "164975479", "138156927", "156878091", "155226337", "148393347", "114283628" ], i = 0;
-    console.log(tracks.length);
-    var playNewTrack = function(trackID) {
+    var tracks = [ "164773080", "165964904", "22454575", "155143944", "130679842", "86282419", "56511482", "11295149", "135397912", "120452997", "157838635", "89421686", "74376031", "6430227", "15145917", "21682519", "115522159", "30709985", "156821162", "132999269", "166262342", "164975479", "138156927", "156878091", "155226337", "148393347", "114283628", "1284839", "35691245", "35498261", "16692104", "35498404" ], i = 0, playNewTrack = function(trackID) {
         $.ajax({
             url: "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID,
             type: "get",
@@ -24,6 +22,9 @@ $(function() {
                     sound.play({
                         onfinish: function() {
                             console.log("song over"), sound.destruct(), playMusic();
+                        },
+                        onstop: function() {
+                            sound.destruct(), playMusic();
                         }
                     }), console.log(data), $("#artwork a, #artwork img").remove(), $("#title").empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + "</a>"), 
                     $("#artist").empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + "</a>"), 
@@ -33,7 +34,7 @@ $(function() {
                     $("#play-pause").on("click", function() {
                         console.log("pausing/playing"), sound.togglePause();
                     }), $("#skip").on("click", function() {
-                        console.log("skipping song"), sound.destruct(), playMusic();
+                        console.log("skipping song"), sound.stop();
                     }), i++, console.log(i), $("nav").addClass("song-loaded");
                 });
             }

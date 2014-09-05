@@ -10,7 +10,6 @@ $(function(){
 	var tracks = [		// list of all tracks 
 		"164773080",	// slow magic | waited4u
 		"165964904",	// the six | too much love
-
 		"22454575",		// cfcf | come true
 		"155143944",	// tycho | awake (com truise remix)
 		"130679842",	// com truise | subsonic
@@ -36,11 +35,14 @@ $(function(){
 		"155226337",	// avidd | ??????
 		"148393347",	// blackbird blackbird
 		"114283628",	// slow magic | gold panda - brazil remix
+		"1284839",		// moderat | a new error
+		"35691245",		// seekae | 3
+		"35498261",		// seekae | forest fire
+		"16692104",		// telos2010 | yurai (telos remix)
+		"35498404",		// seekae | void
 	];
 
 	var i = 0;
-
-	console.log(tracks.length);
 
 	var playNewTrack = function(trackID){ // play that funky music space boy
 		$.ajax({
@@ -53,6 +55,10 @@ $(function(){
 					sound.play({
 						onfinish: function(){
 							console.log("song over");
+							sound.destruct();
+							playMusic();
+						},
+						onstop: function(){
 							sound.destruct();
 							playMusic();
 						}
@@ -87,8 +93,7 @@ $(function(){
 
 					$('#skip').on("click", function(){
 						console.log("skipping song");
-						sound.destruct();
-						playMusic();
+						sound.stop();
 					});
 
 					i++;
