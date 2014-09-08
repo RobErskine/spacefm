@@ -33,13 +33,14 @@ $(function(){
 		"138156927",	// millionyoung | captn hook 
 		"156878091",	// tennyson | lay-by
 		"155226337",	// avidd | ??????
-		"148393347",	// blackbird blackbird
+		"148393347",	// blackbird blackbird | Star Faces
 		"114283628",	// slow magic | gold panda - brazil remix
 		"1284839",		// moderat | a new error
 		"35691245",		// seekae | 3
 		"35498261",		// seekae | forest fire
-		"16692104",		// telos2010 | yurai (telos remix)
+		"16692104",		// seekae | yurai (telos remix)
 		"35498404",		// seekae | void
+		"144651161",	// slow magic | holographic
 	];
 
 	var i = 0;
