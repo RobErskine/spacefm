@@ -41,6 +41,10 @@ $(function(){
 		"16692104",		// seekae | yurai (telos remix)
 		"35498404",		// seekae | void
 		"144651161",	// slow magic | holographic
+		"23126532",		// memory cassette | asleep at a party
+		"93549370",		// boards of canada | reach for the dead
+		"4981703",		// boards of canada | seventy forty seven (johnny_ripper remix)
+		
 	];
 
 	var i = 0;
