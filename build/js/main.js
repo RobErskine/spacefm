@@ -9,7 +9,6 @@ $(function(){
 
 	var tracks = [		// list of all tracks 
 		"164773080",	// slow magic | waited4u
-		"165964904",	// the six | too much love
 		"22454575",		// cfcf | come true
 		"155143944",	// tycho | awake (com truise remix)
 		"130679842",	// com truise | subsonic
@@ -44,7 +43,14 @@ $(function(){
 		"23126532",		// memory cassette | asleep at a party
 		"93549370",		// boards of canada | reach for the dead
 		"4981703",		// boards of canada | seventy forty seven (johnny_ripper remix)
-		
+		"166246330",	// lancaster | beachy thing
+		"163555600",	// coldplay | midnight (kygo remix)
+		"165138064",	// phaeleh | a world without
+		"50702267",		// phaeleh | orchid
+		"159146247",	// vvv | more than love
+		"164156075",	// exconfusion | flow
+		"112470822",	// foxes in fiction | breathing in
+		"94000680",		// gold panda | we work nights
 	];
 
 	var i = 0;
