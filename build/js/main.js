@@ -51,6 +51,23 @@ $(function(){
 		"164156075",	// exconfusion | flow
 		"112470822",	// foxes in fiction | breathing in
 		"94000680",		// gold panda | we work nights
+		"124126863",	// thievery corporation | fragments (tycho remix)
+		"68726077",		// heathered pearls | gentle practice
+		"153438725",	// body complex | out of habit
+		"106374730",	// heathered pearls | worship bell (foxes in fiction rework)
+		"104281995",	// heathered pearls | steady veil (teen daze remix)
+		"124089497",	// son of sound | night shift
+		"32407942",		// windsurf | weird energy
+		"45838370",		// uncle skeleton | lakeshore
+		"53847841",		// uncle skeleton | retrofuture
+		"148924485",	// espirit | warmjet
+		"144391107",	// gacha | sea of steps (hvl space edit) 
+		"166336588",	// anzo - intro
+		"166353637",	// sizzelbird | dawn
+		"157407766",	// sizzlebird | landing
+		"16831032",		// sizzlebird | illuminate
+		"155191090",	// aphonic | the further we go (bachelors of science remix)
+		
 	];
 
 	var i = 0;
