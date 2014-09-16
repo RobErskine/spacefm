@@ -67,7 +67,11 @@ $(function(){
 		"157407766",	// sizzlebird | landing
 		"16831032",		// sizzlebird | illuminate
 		"155191090",	// aphonic | the further we go (bachelors of science remix)
-		
+		"13756912",		// games | midi drift
+		"2405882",		// games | no disguies
+		"97251636",		// darkstar | aidys girl is a computer
+		"115625903",	// darkstar
+
 	];
 
 	var i = 0;
