@@ -16,6 +16,7 @@ $(function(){
 		"56511482",		// explosions in the sky | so long, lonesome
 		"11295149",		// balmorea | Truth (Helios Remix)
 		"135397912",	// teen daze | tokyo winter
+		"62837562",		// teen daze | discipleship
 		"120452997",	// nils frahm | you (teen daze rework)
 		"157838635",	// pogo | puff love
 		"89421686",		// elite gymnastics | minneapolis belongs to you 2
@@ -39,7 +40,6 @@ $(function(){
 		"35498261",		// seekae | forest fire
 		"16692104",		// seekae | yurai (telos remix)
 		"35498404",		// seekae | void
-		"144651161",	// slow magic | holographic
 		"23126532",		// memory cassette | asleep at a party
 		"93549370",		// boards of canada | reach for the dead
 		"4981703",		// boards of canada | seventy forty seven (johnny_ripper remix)
@@ -62,7 +62,7 @@ $(function(){
 		"53847841",		// uncle skeleton | retrofuture
 		"148924485",	// espirit | warmjet
 		"144391107",	// gacha | sea of steps (hvl space edit) 
-		"166336588",	// anzo - intro
+		"166336588",	// anzo | intro
 		"166353637",	// sizzelbird | dawn
 		"157407766",	// sizzlebird | landing
 		"16831032",		// sizzlebird | illuminate
@@ -71,7 +71,17 @@ $(function(){
 		"2405882",		// games | no disguies
 		"97251636",		// darkstar | aidys girl is a computer
 		"115625903",	// darkstar
-
+		"129848489",	// young magic | something in the water
+		"144651161",	// young magic | holographic
+		"36501094",		// young magic | night in the ocean (S.Maharba serpernt love song remix)
+		"110175342",	// gil michell | no friends
+		"32242910",		// s.maharba | m/l/m/h
+		"53126096",		// chrome sparks | marijuana
+		"30868816",		// youth lagoon | daydream
+		"45821728",		// cinnamon chasers | luv deluxe
+		"19095016",		// teebs | anchor steam
+		"32740736",		// ryan hemsworth | three hours in
+		"72139376",		// prefuse 73 | storm returns
 	];
 
 	var i = 0;
