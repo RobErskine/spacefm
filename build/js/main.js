@@ -82,6 +82,10 @@ $(function(){
 		"19095016",		// teebs | anchor steam
 		"32740736",		// ryan hemsworth | three hours in
 		"72139376",		// prefuse 73 | storm returns
+		"161171541",	// phaeleh | three
+		"159049473",	// default genders | the trees in the driveway
+		"159049476",	// default genders | omertå
+		"159049469",	// default genders | kairosis in real life
 	];
 
 	var i = 0;
