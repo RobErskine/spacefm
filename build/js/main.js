@@ -87,6 +87,8 @@ $(function(){
 		"159049476",	// default genders | omertå
 		"159049469",	// default genders | kairosis in real life
 		"104281995",	// steady veil | teen daze remix
+		"98189196",		// kodak to graph | house plants
+		"160833198",	// dntel | if i stay a minute
 	];
 
 	var i = 0;
