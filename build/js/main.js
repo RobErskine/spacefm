@@ -92,6 +92,9 @@ $(function(){
 		"48102295",		// willits | opening
 		"157958765",	// willits | clear
 		"17260113",		// essay | morning mountain
+		"171383711",	// young magic | something in the water ( roland tings remix )
+		"171082727",	// tennyson | with you
+		"170643277",	// sizzlebird | mountains
 	];
 
 	var i = 0;
