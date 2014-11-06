@@ -83,7 +83,6 @@ $(function(){
 		"32740736",		// ryan hemsworth | three hours in
 		"72139376",		// prefuse 73 | storm returns
 		"161171541",	// phaeleh | three
-		"159049473",	// default genders | the trees in the driveway
 		"159049476",	// default genders | omertå
 		"159049469",	// default genders | kairosis in real life
 		"104281995",	// steady veil | teen daze remix
@@ -95,6 +94,11 @@ $(function(){
 		"171383711",	// young magic | something in the water ( roland tings remix )
 		"171082727",	// tennyson | with you
 		"170643277",	// sizzlebird | mountains
+		"34125983",		// tourist | placid acid
+		"78043048",		// evenings | friend[lover]
+		"89326189",		// evenings | evenings [shigeto remix]
+		"171937900",	// iambear | 16:40
+		
 	];
 
 	var i = 0;
@@ -169,27 +173,6 @@ $(function(){
 		shuffle(tracks);
 		playNewTrack(tracks[0]);
 	}
-
-	// control for videos
-	/*
-	var videos = [
-		["zez8Dza-TwQ", "2000"],
-		["C8tEK-0nybo", "2000"],
-		["55gOBu_PvXE", "2000"],
-		["01TwapLmoP8", "2000"],
-		["TheFr7Nl-zY", "2000"],
-		["P5_GlAOCHyE", "2000"]
-	];
-
-	setInterval(function(){
-		var player =  $("#video-player").get(0);
-		var randomVideo = Math.floor(Math.random() * videos.length);
-
-		var stock = "//www.youtube.com/embed/" + videos[randomVideo][0] + "?autoplay=1&enablejsapi=1";
-		//$('#video-player').attr("src", stock);
-		player.mute();
-	}, 30000);
-	*/
 
 	function shuffle(sourceArray) {
 		for (var n = 0; n < sourceArray.length - 1; n++) {
