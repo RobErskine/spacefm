@@ -99,7 +99,8 @@ $(function(){
 		"89326189",		// evenings | evenings [shigeto remix]
 		"171937900",	// iambear | 16:40
 		"168981952",	// gidge | huldra
-		
+		"170000664",	// jon hopkins | form by firelight
+		"176310241",	// michna | she exists in my mind
 	];
 
 	var i = 0;
