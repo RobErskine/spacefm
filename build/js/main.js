@@ -101,7 +101,40 @@ $(function(){
 		"168981952",	// gidge | huldra
 		"170000664",	// jon hopkins | form by firelight
 		"176310241",	// michna | she exists in my mind
+		"90861637",		// jon hopkins | open eye signal [lord of the isles remix]
+		"180439641",	// slow  magic | hold still [andrea remix]
+		"176452084",	// pearl white | solitude
+		"14212824",		// the american dollar | signaling through the flames
+		"140695893",	// mogwai | hungry face (les revenants remix)
+		"81970529",		// baths | miasma sky
 	];
+
+	var songUpdate = function(trackTitle,trackArtist,trackImage) {
+		if (!Notification) {
+			console.log('no notifications');
+			return;
+		}
+
+		if (Notification.permission !== "granted"){
+			Notification.requestPermission();
+		}
+
+		var notification = new Notification('SpaceFM - Now Playing:', {
+			icon: trackImage,
+			body: trackTitle + " by " + trackArtist,
+		});
+
+
+		notification.onclick = function () {
+			window.open("http://changethistotherightaddress.com");
+		};
+
+
+		setTimeout(function(){
+			notification.close();
+		},4000);
+
+	};
 
 	var i = 0;
 
@@ -145,6 +178,10 @@ $(function(){
 						$('nav').removeClass('image-artwork');
 					}
 
+					if(document.hidden){
+						songUpdate(data.title, data.user.username, data.artwork_url);
+					}
+					
 					$('#artwork a').attr("href", data.purchase_url);
 				
 					$('#play-pause').on("click",function(){
