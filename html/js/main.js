@@ -165,6 +165,14 @@ $(function(){
 					$('#title').empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + '</a>');
 					$('#artist').empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + '</a>');
 
+					$('header').addClass('song-switching');
+
+					setTimeout(function(){
+						$('header h1').html(data.title).fitText(1);
+						$('header h1').append('<span>'+data.user.username+'</span>');
+						$('header').removeClass('song-switching');
+					},600);
+
 					if(data.artwork_url != null){
 						$('#artwork').append('<img src="' + data.artwork_url + '">');
 						$('nav').addClass('image-artwork');
@@ -181,7 +189,7 @@ $(function(){
 					if(document.hidden){
 						songUpdate(data.title, data.user.username, data.artwork_url);
 					}
-					
+
 					$('#artwork a').attr("href", data.purchase_url);
 				
 					$('#play-pause').on("click",function(){

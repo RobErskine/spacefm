@@ -14,6 +14,7 @@ window.onload = function() {
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
       background.fillColor = '#002E54';
+  
   buildStars();
   triangle = new Triangle(50);
 
@@ -26,7 +27,6 @@ window.onload = function() {
     triangle.update();
   };
 };
-
 
 
 // ---------------------------------------------------
