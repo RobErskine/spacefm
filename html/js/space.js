@@ -61,10 +61,10 @@ var Triangle = function(a) {
 Triangle.prototype.build = function(a) {
   // The points of the triangle
   var segments = [new paper.Point(0, -a / SQRT_3),
-                  new paper.Point(-a/2, a * 0.5 / SQRT_3),
-                  new paper.Point(a/2, a * 0.5 / SQRT_3)];
+                  new paper.Point(-a/2, a * 0.75 / SQRT_3),
+                  new paper.Point(a/2, a * 0.75 / SQRT_3)];
 
-  this.flameSize = a / SQRT_3;
+  this.flameSize = (a / SQRT_3)*1.2;
   var flameSegments = [new paper.Point(0, this.flameSize),
                        new paper.Point(-a/3, a * 0.4 / SQRT_3),
                        new paper.Point(a/3, a * 0.4 / SQRT_3)];
