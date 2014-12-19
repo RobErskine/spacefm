@@ -17,7 +17,26 @@ h2,h3,.about,.meta{
 	display:none !important;
 }
 
-header{
+body > h1{
+	font-family:$font-body;
+	font-size:20px;
+	font-weight:700;
+	color:#fffeed;
+	text-transform: uppercase;
+	letter-spacing:0;
+	@include opacity(0);
+	@include position(absolute, 20px auto auto 50%);
+	@include transform(translateX(-50%));
+	@include transition(all .9s ease-in-out);
+	z-index: 9;
+}
+
+body.loaded > h1{
+	@include opacity(1);
+	letter-spacing:.5em;
+}
+
+.now-playing{
 	@extend %absolute-middle;
 	display:block;
 	width:100%;
@@ -26,7 +45,7 @@ header{
 		width:100%;
 		text-align:center;
 		position:relative;
-		color:rgba(#fff, .1);
+		color:rgba(#fffeed, .13);
 		font-family:$font-headline;
 		text-transform: uppercase;
 		z-index:9;
@@ -48,7 +67,7 @@ header{
 				@include transform(translateX(-50%));
 				height:2px;
 				width:50%;
-				background-color:rgba(#fff,.1);
+				background-color:rgba(#fffeed,.13);
 			}
 		}
 	}

@@ -23,7 +23,7 @@ window.onload = function() {
   paper.view.onFrame = function(event) {
     position = position.add( (mousePos.subtract(position).divide(10) ) );
     var vector = (view.center.subtract(position)).divide(10);
-    moveStars(vector.multiply(3));
+    moveStars(vector.multiply(2.33));
     triangle.update();
   };
 };
@@ -120,8 +120,8 @@ var buildStars = function() {
   var path = new Path.Circle({
     center: [0, 0],
     radius: 5,
-    fillColor: 'white',
-    strokeColor: 'white'
+    fillColor: '#fffeed',
+    strokeColor: '#fffeed'
   });
 
   var symbol = new Symbol(path);

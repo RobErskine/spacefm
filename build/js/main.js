@@ -1,8 +1,8 @@
 $(function(){
 
 	// launch loading screen
-	$('header h1').fitText(1);
-
+	$('body').addClass('loaded');
+	$('.now-playing h1').fitText(1);
 
 	var clientID = '3869b2e3b6e85b175e114b4e19042775';
 
@@ -120,6 +120,15 @@ $(function(){
 		"170880536",	// stal | gone (cubenx remix)
 		"30233022",		// audision | yellow sunset (robags stoylago edit)
 		"24251820",		// walls | heat haze
+		"24251819",		// walls | into our midst
+		"144036975",	// pye corner audio | perfect secrecy for ever
+		"166220071",	// ludique | yessss niet gemasterd
+		"39386586",		// ambulaunz | the garden
+		"136569045",	// bonobo | kiara (ashchirn mix)
+		"95392207",		// hobo | incise
+		"42628534",		// klaypex | song12
+		"70704570",		// braids | pleasures
+		"9866727",		// we love | harmony of spheres
 	];
 
 	var songUpdate = function(trackTitle,trackArtist,trackImage) {
@@ -156,18 +165,20 @@ $(function(){
 			url: "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID,
 			type: 'get',
 			dataType: 'json',
+			error: function(){
+				playMusic('error, playing a new one');
+			},
 			success: function(data){
 
 				SC.stream("/tracks/"+trackID, function(sound){
 					sound.play({
 						onfinish: function(){
-							console.log("song over");
 							sound.destruct();
-							playMusic();
+							playMusic('song finished, playing a new one');
 						},
 						onstop: function(){
 							sound.destruct();
-							playMusic();
+							playMusic('skipping');
 						}
 					});
 
@@ -211,7 +222,6 @@ $(function(){
 					});
 
 					$('#skip').on("click", function(){
-						console.log("skipping song");
 						sound.stop();
 					});
 
@@ -226,10 +236,10 @@ $(function(){
 	};
 
 	
-	playMusic();
+	playMusic('initializing');
 
-	function playMusic(){
-		console.log("new song playing");
+	function playMusic(message){
+		console.log(message);
 		shuffle(tracks);
 		playNewTrack(tracks[0]);
 	}
