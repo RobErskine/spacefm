@@ -18,18 +18,21 @@ h2,h3,.about,.meta{
 }
 
 header{
+	@extend %absolute-middle;
+	display:block;
+	width:100%;
+	z-index:9;
 	h1{
 		width:100%;
 		text-align:center;
-		//@include position(absolute, 50 auto auto 50%);
-		//@include transform(translateX(-50%));
-		@extend %absolute-middle;
+		position:relative;
 		color:rgba(#fff, .1);
 		font-family:$font-headline;
 		text-transform: uppercase;
 		z-index:9;
 		@extend %default-transition;
 		@include opacity(1);
+		@include transform(scale(1));
 		span{
 			@include position(absolute, auto auto -1.66em 50%);
 			@include transform(translateX(-50%));
@@ -51,7 +54,7 @@ header{
 	}
 	&.song-switching h1{
 		@include opacity(0);
-		font-size:0px !important;
+		@include transform(scale(0));
 	}
 }
 

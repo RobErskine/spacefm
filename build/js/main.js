@@ -1,5 +1,9 @@
 $(function(){
 
+	// launch loading screen
+	$('header h1').fitText(1);
+
+
 	var clientID = '3869b2e3b6e85b175e114b4e19042775';
 
 	// sound cloud integration
@@ -107,6 +111,15 @@ $(function(){
 		"14212824",		// the american dollar | signaling through the flames
 		"140695893",	// mogwai | hungry face (les revenants remix)
 		"81970529",		// baths | miasma sky
+		"14663128",		// bop | sunrain
+		"4446117",		// special victim | zoinks
+		"43587803",		// baio | sunburn modern
+		"118739081",	// dauwd | silverse
+		"15708345",		// souls in motion | sensual illusion
+		"45179757",		// luke abbott | modern driveway
+		"170880536",	// stal | gone (cubenx remix)
+		"30233022",		// audision | yellow sunset (robags stoylago edit)
+		"24251820",		// walls | heat haze
 	];
 
 	var songUpdate = function(trackTitle,trackArtist,trackImage) {

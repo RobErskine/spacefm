@@ -1,233 +1,60 @@
-$(function(){
-
-	var clientID = '3869b2e3b6e85b175e114b4e19042775';
-
-	// sound cloud integration
-	SC.initialize({
-		client_id: clientID
-	});
-
-	var tracks = [		// list of all tracks 
-		"164773080",	// slow magic | waited4u
-		"22454575",		// cfcf | come true
-		"155143944",	// tycho | awake (com truise remix)
-		"130679842",	// com truise | subsonic
-		"86282419",		// com truise | idle withdraw
-		"56511482",		// explosions in the sky | so long, lonesome
-		"11295149",		// balmorea | Truth (Helios Remix)
-		"135397912",	// teen daze | tokyo winter
-		"62837562",		// teen daze | discipleship
-		"120452997",	// nils frahm | you (teen daze rework)
-		"157838635",	// pogo | puff love
-		"89421686",		// elite gymnastics | minneapolis belongs to you 2
-		"74376031",		// West One Music Group | washed away
-		"6430227",		// daft punk | something about us
-		"15145917",		// thieves like us | flow my tears, the police man said
-		"21682519",		// slohmo | anywhere but here
-		"115522159",	// fourtet | unicorn
-		"30709985",		// fourtet | moma
-		"156821162",	// bonobo | duels
-		"132999269",	// bonobo | antenna
-		"166262342",	// millionyoung | dire, dire docks
-		"164975479",	// millionyoung | Fade Out (telescope thieves remix)
-		"138156927",	// millionyoung | captn hook 
-		"156878091",	// tennyson | lay-by
-		"155226337",	// avidd | ??????
-		"148393347",	// blackbird blackbird | Star Faces
-		"114283628",	// slow magic | gold panda - brazil remix
-		"1284839",		// moderat | a new error
-		"35691245",		// seekae | 3
-		"35498261",		// seekae | forest fire
-		"16692104",		// seekae | yurai (telos remix)
-		"35498404",		// seekae | void
-		"23126532",		// memory cassette | asleep at a party
-		"93549370",		// boards of canada | reach for the dead
-		"4981703",		// boards of canada | seventy forty seven (johnny_ripper remix)
-		"166246330",	// lancaster | beachy thing
-		"163555600",	// coldplay | midnight (kygo remix)
-		"165138064",	// phaeleh | a world without
-		"50702267",		// phaeleh | orchid
-		"159146247",	// vvv | more than love
-		"164156075",	// exconfusion | flow
-		"112470822",	// foxes in fiction | breathing in
-		"94000680",		// gold panda | we work nights
-		"124126863",	// thievery corporation | fragments (tycho remix)
-		"68726077",		// heathered pearls | gentle practice
-		"153438725",	// body complex | out of habit
-		"106374730",	// heathered pearls | worship bell (foxes in fiction rework)
-		"104281995",	// heathered pearls | steady veil (teen daze remix)
-		"124089497",	// son of sound | night shift
-		"32407942",		// windsurf | weird energy
-		"45838370",		// uncle skeleton | lakeshore
-		"53847841",		// uncle skeleton | retrofuture
-		"148924485",	// espirit | warmjet
-		"144391107",	// gacha | sea of steps (hvl space edit) 
-		"166336588",	// anzo | intro
-		"166353637",	// sizzelbird | dawn
-		"157407766",	// sizzlebird | landing
-		"16831032",		// sizzlebird | illuminate
-		"155191090",	// aphonic | the further we go (bachelors of science remix)
-		"13756912",		// games | midi drift
-		"2405882",		// games | no disguies
-		"97251636",		// darkstar | aidys girl is a computer
-		"115625903",	// darkstar
-		"129848489",	// young magic | something in the water
-		"144651161",	// young magic | holographic
-		"36501094",		// young magic | night in the ocean (S.Maharba serpernt love song remix)
-		"110175342",	// gil michell | no friends
-		"32242910",		// s.maharba | m/l/m/h
-		"53126096",		// chrome sparks | marijuana
-		"30868816",		// youth lagoon | daydream
-		"45821728",		// cinnamon chasers | luv deluxe
-		"19095016",		// teebs | anchor steam
-		"32740736",		// ryan hemsworth | three hours in
-		"72139376",		// prefuse 73 | storm returns
-		"161171541",	// phaeleh | three
-		"159049476",	// default genders | omertå
-		"159049469",	// default genders | kairosis in real life
-		"104281995",	// steady veil | teen daze remix
-		"98189196",		// kodak to graph | house plants 
-		"160833198",	// dntel | if i stay a minute
-		"48102295",		// willits | opening
-		"157958765",	// willits | clear
-		"17260113",		// essay | morning mountain
-		"171383711",	// young magic | something in the water ( roland tings remix )
-		"171082727",	// tennyson | with you
-		"170643277",	// sizzlebird | mountains
-		"34125983",		// tourist | placid acid
-		"78043048",		// evenings | friend[lover]
-		"89326189",		// evenings | evenings [shigeto remix]
-		"171937900",	// iambear | 16:40
-		"168981952",	// gidge | huldra
-		"170000664",	// jon hopkins | form by firelight
-		"176310241",	// michna | she exists in my mind
-		"90861637",		// jon hopkins | open eye signal [lord of the isles remix]
-		"180439641",	// slow  magic | hold still [andrea remix]
-		"176452084",	// pearl white | solitude
-		"14212824",		// the american dollar | signaling through the flames
-		"140695893",	// mogwai | hungry face (les revenants remix)
-		"81970529",		// baths | miasma sky
-	];
-
-	var songUpdate = function(trackTitle,trackArtist,trackImage) {
-		if (!Notification) {
-			console.log('no notifications');
-			return;
-		}
-
-		if (Notification.permission !== "granted"){
-			Notification.requestPermission();
-		}
-
-		var notification = new Notification('SpaceFM - Now Playing:', {
-			icon: trackImage,
-			body: trackTitle + " by " + trackArtist,
-		});
-
-
-		notification.onclick = function () {
-			window.open("http://changethistotherightaddress.com");
-		};
-
-
-		setTimeout(function(){
-			notification.close();
-		},4000);
-
-	};
-
-	var i = 0;
-
-	var playNewTrack = function(trackID){ // play that funky music space boy
-		$.ajax({
-			url: "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID,
-			type: 'get',
-			dataType: 'json',
-			success: function(data){
-
-				SC.stream("/tracks/"+trackID, function(sound){
-					sound.play({
-						onfinish: function(){
-							console.log("song over");
-							sound.destruct();
-							playMusic();
-						},
-						onstop: function(){
-							sound.destruct();
-							playMusic();
-						}
-					});
-
-					console.log(data);
-
-					$('#artwork a, #artwork img').remove();
-
-					$('#title').empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + '</a>');
-					$('#artist').empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + '</a>');
-
-					$('header').addClass('song-switching');
-
-					setTimeout(function(){
-						$('header h1').html(data.title).fitText(1);
-						$('header h1').append('<span>'+data.user.username+'</span>');
-						$('header').removeClass('song-switching');
-					},600);
-
-					if(data.artwork_url != null){
-						$('#artwork').append('<img src="' + data.artwork_url + '">');
-						$('nav').addClass('image-artwork');
-						if( data.purchase_url != null){
-							$('#artwork img').wrap('<a data-popup="true" href="' + data.purchase_url + '">');
-						}
-					}
-					else{
-						$('#artwork').remove("img");
-						$('#artwork').remove("a");
-						$('nav').removeClass('image-artwork');
-					}
-
-					if(document.hidden){
-						songUpdate(data.title, data.user.username, data.artwork_url);
-					}
-
-					$('#artwork a').attr("href", data.purchase_url);
-				
-					$('#play-pause').on("click",function(){
-						console.log("pausing/playing");
-						sound.togglePause();
-					});
-
-					$('#skip').on("click", function(){
-						console.log("skipping song");
-						sound.stop();
-					});
-
-					i++;
-					console.log(i);
-
-					$('nav').addClass('song-loaded');
-
-				});
-			}
-		});
-	};
-
-	
-	playMusic();
-
-	function playMusic(){
-		console.log("new song playing");
-		shuffle(tracks);
-		playNewTrack(tracks[0]);
-	}
-
-	function shuffle(sourceArray) {
-		for (var n = 0; n < sourceArray.length - 1; n++) {
-			var k = n + Math.floor(Math.random() * (sourceArray.length - n));
-
-			var temp = sourceArray[k];
-			sourceArray[k] = sourceArray[n];
-			sourceArray[n] = temp;
-		}
-	}
+$(function() {
+    function playMusic() {
+        console.log("new song playing"), shuffle(tracks), playNewTrack(tracks[0]);
+    }
+    function shuffle(sourceArray) {
+        for (var n = 0; n < sourceArray.length - 1; n++) {
+            var k = n + Math.floor(Math.random() * (sourceArray.length - n)), temp = sourceArray[k];
+            sourceArray[k] = sourceArray[n], sourceArray[n] = temp;
+        }
+    }
+    $("header h1").fitText(1);
+    var clientID = "3869b2e3b6e85b175e114b4e19042775";
+    SC.initialize({
+        client_id: clientID
+    });
+    var tracks = [ "164773080", "22454575", "155143944", "130679842", "86282419", "56511482", "11295149", "135397912", "62837562", "120452997", "157838635", "89421686", "74376031", "6430227", "15145917", "21682519", "115522159", "30709985", "156821162", "132999269", "166262342", "164975479", "138156927", "156878091", "155226337", "148393347", "114283628", "1284839", "35691245", "35498261", "16692104", "35498404", "23126532", "93549370", "4981703", "166246330", "163555600", "165138064", "50702267", "159146247", "164156075", "112470822", "94000680", "124126863", "68726077", "153438725", "106374730", "104281995", "124089497", "32407942", "45838370", "53847841", "148924485", "144391107", "166336588", "166353637", "157407766", "16831032", "155191090", "13756912", "2405882", "97251636", "115625903", "129848489", "144651161", "36501094", "110175342", "32242910", "53126096", "30868816", "45821728", "19095016", "32740736", "72139376", "161171541", "159049476", "159049469", "104281995", "98189196", "160833198", "48102295", "157958765", "17260113", "171383711", "171082727", "170643277", "34125983", "78043048", "89326189", "171937900", "168981952", "170000664", "176310241", "90861637", "180439641", "176452084", "14212824", "140695893", "81970529", "14663128", "4446117", "43587803", "118739081", "15708345", "45179757", "170880536", "30233022", "24251820" ], songUpdate = function(trackTitle, trackArtist, trackImage) {
+        if (!Notification) return void console.log("no notifications");
+        "granted" !== Notification.permission && Notification.requestPermission();
+        var notification = new Notification("SpaceFM - Now Playing:", {
+            icon: trackImage,
+            body: trackTitle + " by " + trackArtist
+        });
+        notification.onclick = function() {
+            window.open("http://changethistotherightaddress.com");
+        }, setTimeout(function() {
+            notification.close();
+        }, 4e3);
+    }, i = 0, playNewTrack = function(trackID) {
+        $.ajax({
+            url: "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID,
+            type: "get",
+            dataType: "json",
+            success: function(data) {
+                SC.stream("/tracks/" + trackID, function(sound) {
+                    sound.play({
+                        onfinish: function() {
+                            console.log("song over"), sound.destruct(), playMusic();
+                        },
+                        onstop: function() {
+                            sound.destruct(), playMusic();
+                        }
+                    }), console.log(data), $("#artwork a, #artwork img").remove(), $("#title").empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + "</a>"), 
+                    $("#artist").empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + "</a>"), 
+                    $("header").addClass("song-switching"), setTimeout(function() {
+                        $("header h1").html(data.title).fitText(1), $("header h1").append("<span>" + data.user.username + "</span>"), 
+                        $("header").removeClass("song-switching");
+                    }, 600), null != data.artwork_url ? ($("#artwork").append('<img src="' + data.artwork_url + '">'), 
+                    $("nav").addClass("image-artwork"), null != data.purchase_url && $("#artwork img").wrap('<a data-popup="true" href="' + data.purchase_url + '">')) : ($("#artwork").remove("img"), 
+                    $("#artwork").remove("a"), $("nav").removeClass("image-artwork")), document.hidden && songUpdate(data.title, data.user.username, data.artwork_url), 
+                    $("#artwork a").attr("href", data.purchase_url), $("#play-pause").on("click", function() {
+                        console.log("pausing/playing"), sound.togglePause();
+                    }), $("#skip").on("click", function() {
+                        console.log("skipping song"), sound.stop();
+                    }), i++, console.log(i), $("nav").addClass("song-loaded");
+                });
+            }
+        });
+    };
+    playMusic();
 });
