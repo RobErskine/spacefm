@@ -3,8 +3,9 @@ var SQRT_3 = Math.pow(3, 0.5);
 var triangle, D, mousePos, position;
 var count = 50;
 
+
 window.onload = function() {
-  paper.setup('triangle-lost-in-space');
+  paper.setup('spacefm');
 
   D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
 
@@ -13,10 +14,10 @@ window.onload = function() {
 
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
-      background.fillColor = '#002E54';
+      //background.fillColor = '#002E54'; // do this in css instead
   
   buildStars();
-  triangle = new Triangle(50);
+  triangle = new Triangle(50, 'green');
 
   paper.view.draw();
 
@@ -37,7 +38,7 @@ window.onresize = function() {
   D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
-      background.fillColor = '#002E54';
+      //background.fillColor = '#002E54';
   buildStars();
   triangle.build(50);
 };
@@ -54,11 +55,11 @@ var map = function (n, start1, stop1, start2, stop2) {
 // ---------------------------------------------------
 //  Triangle
 // ---------------------------------------------------
-var Triangle = function(a) {
-  this.build(a);
+var Triangle = function(a, color) {
+  this.build(a,color);
 };
 
-Triangle.prototype.build = function(a) {
+Triangle.prototype.build = function(a, color) {
   // The points of the triangle
   var segments = [new paper.Point(0, -a / SQRT_3),
                   new paper.Point(-a/2, a * 0.75 / SQRT_3),
@@ -77,7 +78,7 @@ Triangle.prototype.build = function(a) {
   this.ship = new Path({
     segments: segments,
     closed: true,
-    fillColor: '#0077da'
+    fillColor: color
   });
   this.group = new Group({
     children: [this.flame, this.ship],

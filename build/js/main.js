@@ -129,6 +129,12 @@ $(function(){
 		"42628534",		// klaypex | song12
 		"70704570",		// braids | pleasures
 		"9866727",		// we love | harmony of spheres
+		"181162634",	// sun glitters | fading days
+		"179444155",	// sun glitters | not everyday, sometimes
+		"6142313",		// ulrich schnaub | monday paracetamol
+		"101519147",	// casino versus japan | marilyn set me free
+		"7637519",		// holy other | magick mountain
+		"147215107",	// chrome sparks | meaning of love
 	];
 
 	var songUpdate = function(trackTitle,trackArtist,trackImage) {
