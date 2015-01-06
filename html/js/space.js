@@ -1,3 +1,5 @@
+var debugging = true;
+
 paper.install(window);
 var SQRT_3 = Math.pow(3, 0.5);
 var triangle, D, mousePos, position;
@@ -165,6 +167,17 @@ window.onload = function() {
     "147215107",  // chrome sparks | meaning of love
   ];
 
+    //background color| ship color
+  var colors = [
+    ['#1f2335','#627e87'],
+    ['#25221f','#e06e1e'],
+    ['#0f2444','#0759a6'],
+    ['#251a46','#7d7bb7'],
+    ['#181928','#6f8d88'],
+    ['#102138','#eec15f'],
+    ['#0b3941','#eae8ab']
+  ];
+
   var songUpdate = function(trackTitle,trackArtist,trackImage) {
     if (!Notification) {
       console.log('no notifications');
@@ -205,6 +218,11 @@ window.onload = function() {
       success: function(data){
 
         SC.stream("/tracks/"+trackID, function(sound){
+          // debugging in case you want to listen to your own music ;)
+          if(debugging === true){
+            sound.mute();
+          }
+
           sound.play({
             onfinish: function(){
               sound.destruct();
@@ -272,18 +290,25 @@ window.onload = function() {
   
   playMusic('initializing');
 
+  function hexToRGBA(input,alpha){
+    var s = input;
+    var patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
+    var matches = patt.exec(s);
+    var rgba = "rgba("+parseInt(matches[1], 16)+","+parseInt(matches[2], 16)+","+parseInt(matches[3], 16)+","+ alpha+");";
+    return rgba;
+  };
+
   function playMusic(message){
-    console.log(message);
+    if(debugging === true){
+      console.log(message);
+    }
+
     shuffle(tracks);
+    shuffle(colors);
+
     playNewTrack(tracks[0]);
-
-    triangle.changeColor('red');
-
-    //triangle.remove();
-    //triangle = new Triangle(50);
-    //triangle.currentStyle.fillColor = 'red';
-    
-    //paper.view.draw();
+    triangle.changeColor(hexToRGBA(colors[0][1],"0.8"));
+    $('body').css('background-color',colors[0][0]);
   }
 
   function shuffle(sourceArray) {
@@ -306,7 +331,7 @@ window.onresize = function() {
   D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
-      //background.fillColor = '#002E54';
+
   buildStars();
   triangle.build(50);
 };
@@ -355,12 +380,7 @@ Triangle.prototype.build = function(a, color) {
 };
 
 Triangle.prototype.changeColor = function(newColor){
-  
-  //this.ship.currentStyle.fillColor = newColor;
-
-  //console.log(this.ship.);
-
-  this.ship.fillColor = "red";
+  this.ship.fillColor = newColor;
 };
 
 Triangle.prototype.update = function() {

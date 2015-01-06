@@ -3,8 +3,8 @@
 body{
 	position:relative;
 	overflow:hidden;
-	background-color:#002E54;
-	background-size:cover;
+	background-color:#191919;
+	@include transition(background-color .3s ease-in-out);
 }
 
 canvas{
