@@ -1,4 +1,4 @@
-var debugging = true;
+var debugging = false;
 
 paper.install(window);
 var SQRT_3 = Math.pow(3, 0.5);
@@ -16,10 +16,9 @@ window.onload = function() {
 
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
-      //background.fillColor = '#002E54'; // do this in css instead
   
   buildStars();
-  triangle = new Triangle(50, 'green');
+  triangle = new Triangle(50, '#191919');
 
   paper.view.draw();
 

@@ -1,5 +1,10 @@
 @import "partials/base";
 
+.uv-popover.uv-bottom.uv-scale-top-right[style]{
+	left:-354px !important;
+	top:40px !important;
+} 
+
 body{
 	position:relative;
 	overflow:hidden;

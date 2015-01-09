@@ -169,6 +169,12 @@ body {
 }
 
 /* line 3, ../../build/sass/screen.scss */
+.uv-popover.uv-bottom.uv-scale-top-right[style] {
+  left: -354px !important;
+  top: 40px !important;
+}
+
+/* line 8, ../../build/sass/screen.scss */
 body {
   position: relative;
   overflow: hidden;
@@ -178,7 +184,7 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-/* line 10, ../../build/sass/screen.scss */
+/* line 15, ../../build/sass/screen.scss */
 canvas {
   position: absolute;
   top: 0px;
@@ -189,12 +195,12 @@ canvas {
   height: 100%;
 }
 
-/* line 16, ../../build/sass/screen.scss */
+/* line 21, ../../build/sass/screen.scss */
 h2, h3, .about, .meta {
   display: none !important;
 }
 
-/* line 20, ../../build/sass/screen.scss */
+/* line 25, ../../build/sass/screen.scss */
 body > h1 {
   font-family: "Roboto Condensed", helvetica, arial, sans-serif;
   font-size: 20px;
@@ -220,20 +226,20 @@ body > h1 {
   z-index: 9;
 }
 
-/* line 34, ../../build/sass/screen.scss */
+/* line 39, ../../build/sass/screen.scss */
 body.loaded > h1 {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   letter-spacing: .5em;
 }
 
-/* line 39, ../../build/sass/screen.scss */
+/* line 44, ../../build/sass/screen.scss */
 .now-playing {
   display: block;
   width: 100%;
   z-index: 9;
 }
-/* line 44, ../../build/sass/screen.scss */
+/* line 49, ../../build/sass/screen.scss */
 .now-playing h1 {
   width: 100%;
   text-align: center;
@@ -250,7 +256,7 @@ body.loaded > h1 {
   -o-transform: scale(1);
   transform: scale(1);
 }
-/* line 55, ../../build/sass/screen.scss */
+/* line 60, ../../build/sass/screen.scss */
 .now-playing h1 span {
   position: absolute;
   top: auto;
@@ -268,7 +274,7 @@ body.loaded > h1 {
   font-weight: 700;
   padding-top: 1.3em;
 }
-/* line 63, ../../build/sass/screen.scss */
+/* line 68, ../../build/sass/screen.scss */
 .now-playing h1 span:before {
   content: " ";
   display: block;
@@ -286,7 +292,7 @@ body.loaded > h1 {
   width: 50%;
   background-color: rgba(255, 254, 237, 0.13);
 }
-/* line 74, ../../build/sass/screen.scss */
+/* line 79, ../../build/sass/screen.scss */
 .now-playing.song-switching h1 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -297,7 +303,7 @@ body.loaded > h1 {
   transform: scale(0);
 }
 
-/* line 80, ../../build/sass/screen.scss */
+/* line 85, ../../build/sass/screen.scss */
 nav {
   height: auto;
   -webkit-transition: all 0.5s ease-in-out;
@@ -310,7 +316,7 @@ nav {
   left: 0px;
   z-index: 10;
 }
-/* line 86, ../../build/sass/screen.scss */
+/* line 91, ../../build/sass/screen.scss */
 nav .info {
   background-color: #262626;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, #191919));
@@ -321,46 +327,46 @@ nav .info {
   text-align: center;
   padding: 1em;
 }
-/* line 92, ../../build/sass/screen.scss */
+/* line 97, ../../build/sass/screen.scss */
 nav .info a {
   color: #dadada;
   text-decoration: none;
 }
-/* line 96, ../../build/sass/screen.scss */
+/* line 101, ../../build/sass/screen.scss */
 nav .info a:hover {
   color: #fff;
 }
-/* line 100, ../../build/sass/screen.scss */
+/* line 105, ../../build/sass/screen.scss */
 nav .info h2 {
   font-family: "Contrail One", helvetica, arial, sans-serif;
   font-size: 2em;
   padding-bottom: .2em;
 }
-/* line 105, ../../build/sass/screen.scss */
+/* line 110, ../../build/sass/screen.scss */
 nav .info h3 {
   font-family: "Roboto Condensed", helvetica, arial, sans-serif;
   font-size: 1.25em;
 }
-/* line 110, ../../build/sass/screen.scss */
+/* line 115, ../../build/sass/screen.scss */
 nav .about {
   display: none;
 }
-/* line 112, ../../build/sass/screen.scss */
+/* line 117, ../../build/sass/screen.scss */
 nav .about p, nav .about a {
   font-family: helvetica;
   color: #404040;
 }
-/* line 117, ../../build/sass/screen.scss */
+/* line 122, ../../build/sass/screen.scss */
 nav .about p {
   font-size: 1em;
 }
-/* line 120, ../../build/sass/screen.scss */
+/* line 125, ../../build/sass/screen.scss */
 nav .about a {
   text-decoration: none;
   border-bottom: 1px solid;
   padding-bottom: 1px;
 }
-/* line 126, ../../build/sass/screen.scss */
+/* line 131, ../../build/sass/screen.scss */
 nav .meta {
   position: absolute;
   top: 0px;
@@ -371,14 +377,14 @@ nav .meta {
   background-color: rgba(38, 38, 38, 0.8);
   padding: 10px;
 }
-/* line 132, ../../build/sass/screen.scss */
+/* line 137, ../../build/sass/screen.scss */
 nav .meta img {
   width: 100px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-/* line 138, ../../build/sass/screen.scss */
+/* line 143, ../../build/sass/screen.scss */
 nav .meta a {
   position: relative;
   margin: 0 auto;
@@ -386,7 +392,7 @@ nav .meta a {
   display: block;
   overflow: hidden;
 }
-/* line 144, ../../build/sass/screen.scss */
+/* line 149, ../../build/sass/screen.scss */
 nav .meta a:before {
   content: " ";
   position: absolute;
@@ -406,7 +412,7 @@ nav .meta a:before {
   margin-left: -310px;
   background-color: rgba(0, 119, 218, 0.8);
 }
-/* line 153, ../../build/sass/screen.scss */
+/* line 158, ../../build/sass/screen.scss */
 nav .meta a:after {
   content: "Buy song";
   font-size: 18px;
@@ -419,29 +425,29 @@ nav .meta a:after {
   -moz-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-/* line 165, ../../build/sass/screen.scss */
+/* line 170, ../../build/sass/screen.scss */
 nav .meta a:hover:before {
   margin-left: 0px;
 }
-/* line 168, ../../build/sass/screen.scss */
+/* line 173, ../../build/sass/screen.scss */
 nav .meta a:hover:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 176, ../../build/sass/screen.scss */
+/* line 181, ../../build/sass/screen.scss */
 nav.image-artwork:hover .meta {
   top: -120px;
 }
-/* line 182, ../../build/sass/screen.scss */
+/* line 187, ../../build/sass/screen.scss */
 nav:hover .about p, nav:hover .about a {
   color: #737373;
 }
-/* line 187, ../../build/sass/screen.scss */
+/* line 192, ../../build/sass/screen.scss */
 nav.song-loaded {
   bottom: 0px;
 }
 
-/* line 192, ../../build/sass/screen.scss */
+/* line 197, ../../build/sass/screen.scss */
 iframe {
   min-height: 130%;
   min-width: 150%;
@@ -453,15 +459,15 @@ iframe {
 }
 
 @media all and (min-width: 768px) {
-  /* line 201, ../../build/sass/screen.scss */
+  /* line 206, ../../build/sass/screen.scss */
   .no-touch nav .info {
     font-size: 120%;
   }
-  /* line 204, ../../build/sass/screen.scss */
+  /* line 209, ../../build/sass/screen.scss */
   .no-touch nav .about {
     display: block;
   }
-  /* line 206, ../../build/sass/screen.scss */
+  /* line 211, ../../build/sass/screen.scss */
   .no-touch nav .about .me, .no-touch nav .about .inspired {
     position: absolute;
     top: auto;
@@ -469,7 +475,7 @@ iframe {
     bottom: 10px;
     left: 10px;
   }
-  /* line 209, ../../build/sass/screen.scss */
+  /* line 214, ../../build/sass/screen.scss */
   .no-touch nav .about .inspired {
     left: auto;
     right: 10px;
