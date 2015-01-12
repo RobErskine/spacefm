@@ -164,6 +164,8 @@ window.onload = function() {
     "101519147",  // casino versus japan | marilyn set me free
     "7637519",    // holy other | magick mountain
     "147215107",  // chrome sparks | meaning of love
+    "87264491",   // evenings | babe
+    "27709897",   // slow magic | moon
   ];
 
     //background color| ship color
