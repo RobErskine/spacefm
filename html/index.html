@@ -73,6 +73,13 @@
             <h1>Connecting...</h1>
         </header>
 
+        <button class="soundcloud-connect">
+            Connect to Soundcloud
+            <svg class="icon icon-soundcloud">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-soundcloud"></use>
+            </svg> 
+        </button>
+
         <canvas id="spacefm" data-paper-keepalive="true"></canvas>
 
         <nav>
@@ -80,8 +87,22 @@
                 <h2 id="title"></h2>
                 <h3 id="artist"></h3>
                 <div class="controls">
-                    <button id="play-pause">Play / Pause</button>
-                    <button id="skip">Skip </button>
+                    <button id="play-pause">
+                        <svg class="icon icon-play">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-play"></use>
+                        </svg>
+                        <svg class="icon icon-pause">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-pause"></use>
+                        </svg>
+                        </button>
+                    <button id="skip">
+                        <svg class="icon icon-spinner">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-spinner"></use>
+                        </svg>
+                        <svg class="icon icon-skip">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-skip"></use>
+                        </svg>
+                    </button>
                 </div>
 
                 <div class="about">
@@ -92,6 +113,8 @@
             <div class="meta" id="artwork">
             </div>
         </nav>
+        
+        </ul>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery.js"><\/script>')</script>

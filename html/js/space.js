@@ -176,7 +176,8 @@ window.onload = function() {
     ['#251a46','#7d7bb7'],
     ['#181928','#6f8d88'],
     ['#102138','#eec15f'],
-    ['#0b3941','#eae8ab']
+    ['#0b3941','#eae8ab'],
+    ['#2f242e','#3c2a3b']
   ];
 
   var songUpdate = function(trackTitle,trackArtist,trackImage) {
@@ -208,80 +209,95 @@ window.onload = function() {
 
   var i = 0;
 
-  var playNewTrack = function(trackID){ // play that funky music space boy
+  //var oldAPI = "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID;
+  var api = "http://spacefm-api.personal.dev/api/songs/allsongs"; 
+
+  var playNewTrack = function(currentTrack){ // play that funky music space boy
     $.ajax({
-      url: "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID,
+      url: api,
       type: 'get',
       dataType: 'json',
       error: function(){
-        playMusic('error, playing a new one');
+        currentTrack++;
+        playMusic('error, playing a new one',currentTrack);
       },
       success: function(data){
 
-        SC.stream("/tracks/"+trackID, function(sound){
-          // debugging in case you want to listen to your own music ;)
-          if(debugging === true){
-            sound.mute();
-          }
-
-          sound.play({
-            onfinish: function(){
-              sound.destruct();
-              playMusic('song finished, playing a new one');
-            },
-            onstop: function(){
-              sound.destruct();
-              playMusic('skipping');
+        SC.get('/resolve', { url: data.songs[currentTrack].songUrl }, function(track) {
+          /*SC.get('/tracks/' + track.id + '/comments', function(comments) {
+            for (var i = 0; i < comments.length; i++) {
+              console.log('Someone said: ' + comments[i].body);
             }
-          });
+          });*/
 
-          console.log(data);
+          console.log(track);
 
-          $('#artwork a, #artwork img').remove();
-
-          $('#title').empty().html('<a data-popup="true" href="' + data.permalink_url + '">' + data.title + '</a>');
-          $('#artist').empty().html('<a data-popup="true" href="' + data.user.permalink_url + '">' + data.user.username + '</a>');
-
-          $('header').addClass('song-switching');
-
-          setTimeout(function(){
-            $('header h1').html(data.title).fitText(1);
-            $('header h1').append('<span>'+data.user.username+'</span>');
-            $('header').removeClass('song-switching');
-          },600);
-
-          if(data.artwork_url != null){
-            $('#artwork').append('<img src="' + data.artwork_url + '">');
-            $('nav').addClass('image-artwork');
-            if( data.purchase_url != null){
-              $('#artwork img').wrap('<a data-popup="true" href="' + data.purchase_url + '">');
+          SC.stream(track.uri, function(sound){
+            // debugging in case you want to listen to your own music ;)
+            if(debugging === true){
+              sound.mute();
             }
-          }
-          else{
-            $('#artwork').remove("img");
-            $('#artwork').remove("a");
-            $('nav').removeClass('image-artwork');
-          }
 
-          if(document.hidden){
-            songUpdate(data.title, data.user.username, data.artwork_url);
-          }
+            sound.play({
+              onfinish: function(){
+                currentTrack++;
+                sound.destruct();
+                $('body').addClass('song-switching');
+                playMusic('song finished, playing a new one', currentTrack);
+              },
+              onstop: function(){
+                currentTrack++;
+                sound.destruct();
+                $('body').addClass('song-switching');
+                playMusic('skipping',currentTrack++);
+              }
+            });
 
-          $('#artwork a').attr("href", data.purchase_url);
-        
-          $('#play-pause').on("click",function(){
-            console.log("pausing/playing");
-            sound.togglePause();
+            $('body').addClass('song-switching');
+
+            $('#play-pause').on("click",function(){
+              console.log("pausing/playing");
+              sound.togglePause();
+              $(this).toggleClass("paused");
+            });
+
+            $('#skip').on("click", function(){
+              sound.stop();
+            });
+
+            $('#artwork a, #artwork img').remove();
+
+            $('#title').empty().html('<a data-popup="true" href="' + track.permalink_url + '">' + track.title + '</a>');
+            $('#artist').empty().html('<a data-popup="true" href="' + track.user.permalink_url + '">' + track.user.username + '</a>');
+
+            setTimeout(function(){
+              $('header h1').html(data.songs[currentTrack].song).fitText(1);
+              $('header h1').append('<span>'+data.songs[currentTrack].artist+'</span>');
+              $('body').removeClass('song-switching');
+            },600);
+
+            if(data.artwork_url != null){
+              $('#artwork').append('<img src="' + track.artwork_url + '">');
+              $('nav').addClass('image-artwork');
+              if( track.purchase_url != null){
+                $('#artwork img').wrap('<a data-popup="true" href="' + track.purchase_url + '">');
+              }
+            }
+            else{
+              $('#artwork').remove("img");
+              $('#artwork').remove("a");
+              $('nav').removeClass('image-artwork');
+            }
+
+            if(document.hidden){
+              songUpdate(track.title, track.user.username, track.artwork_url);
+            }
+
+            $('#artwork a').attr("href", track.purchase_url);
+
+            $('nav').addClass('song-loaded');
+
           });
-
-          $('#skip').on("click", function(){
-            sound.stop();
-          });
-
-          i++;
-          console.log(i);
-
-          $('nav').addClass('song-loaded');
 
         });
       }
@@ -289,7 +305,7 @@ window.onload = function() {
   };
 
   
-  playMusic('initializing');
+  playMusic('initializing', 0);
 
   function hexToRGBA(input,alpha){
     var s = input;
@@ -299,15 +315,16 @@ window.onload = function() {
     return rgba;
   };
 
-  function playMusic(message){
+  function playMusic(message, currentTrack){
     if(debugging === true){
       console.log(message);
     }
 
-    shuffle(tracks);
+    //shuffle(tracks);
     shuffle(colors);
 
-    playNewTrack(tracks[0]);
+    playNewTrack(currentTrack);
+    
     triangle.changeColor(hexToRGBA(colors[0][1],"0.8"));
     $('body').css('background-color',colors[0][0]);
   }
@@ -321,6 +338,7 @@ window.onload = function() {
       sourceArray[n] = temp;
     }
   }
+
 };
 
 

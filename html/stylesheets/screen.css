@@ -123,13 +123,18 @@ input:focus, textarea:focus {
   outline: none;
 }
 
+/* line 57, ../../build/sass/partials/_base.scss */
+a, input[type="submit"], button {
+  cursor: pointer;
+}
+
 /*//////////////////////////////////////
 //  mixins
 //////////////////////////////////////*/
 /*//////////////////////////////////////
 //  silent classes
 //////////////////////////////////////*/
-/* line 96, ../../build/sass/partials/_base.scss */
+/* line 85, ../../build/sass/partials/_base.scss */
 .block {
   max-width: 1200px;
   width: 100%;
@@ -137,14 +142,14 @@ input:focus, textarea:focus {
   display: block;
 }
 
-/* line 113, ../../build/sass/partials/_base.scss */
-.now-playing h1, nav, nav .info a, nav .about p, nav .about a, nav .meta, nav .meta a:after {
+/* line 102, ../../build/sass/partials/_base.scss */
+.now-playing h1, nav, nav .info a, nav .about p, nav .about a, nav .meta, nav .meta a:after, .controls button, .controls svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
-/* line 122, ../../build/sass/partials/_base.scss */
+/* line 111, ../../build/sass/partials/_base.scss */
 .now-playing, nav .meta a:after {
   position: absolute;
   top: 50%;
@@ -156,13 +161,13 @@ input:focus, textarea:focus {
   transform: translateY(-50%) translateX(-50%);
 }
 
-/* line 127, ../../build/sass/partials/_base.scss */
+/* line 116, ../../build/sass/partials/_base.scss */
 body, html {
   display: block;
   height: 100%;
 }
 
-/* line 132, ../../build/sass/partials/_base.scss */
+/* line 121, ../../build/sass/partials/_base.scss */
 body {
   font-size: 62.5%;
   position: relative;
@@ -292,8 +297,9 @@ body.loaded > h1 {
   width: 50%;
   background-color: rgba(255, 254, 237, 0.13);
 }
-/* line 79, ../../build/sass/screen.scss */
-.now-playing.song-switching h1 {
+
+/* line 82, ../../build/sass/screen.scss */
+body.song-switching .now-playing h1 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   -webkit-transform: scale(0);
@@ -302,8 +308,20 @@ body.loaded > h1 {
   -o-transform: scale(0);
   transform: scale(0);
 }
+/* line 86, ../../build/sass/screen.scss */
+body.song-switching .controls #skip {
+  pointer-events: none;
+}
+/* line 88, ../../build/sass/screen.scss */
+body.song-switching .controls #skip .icon-spinner {
+  display: block;
+}
+/* line 91, ../../build/sass/screen.scss */
+body.song-switching .controls #skip .icon-skip {
+  display: none;
+}
 
-/* line 85, ../../build/sass/screen.scss */
+/* line 97, ../../build/sass/screen.scss */
 nav {
   height: auto;
   -webkit-transition: all 0.5s ease-in-out;
@@ -316,57 +334,53 @@ nav {
   left: 0px;
   z-index: 10;
 }
-/* line 91, ../../build/sass/screen.scss */
+/* line 103, ../../build/sass/screen.scss */
 nav .info {
-  background-color: #262626;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #262626), color-stop(100%, #191919));
-  background-image: -webkit-linear-gradient(#262626, #191919);
-  background-image: linear-gradient(#262626, #191919);
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 1em;
+  padding: 2em 1em;
 }
-/* line 97, ../../build/sass/screen.scss */
+/* line 108, ../../build/sass/screen.scss */
 nav .info a {
   color: #dadada;
   text-decoration: none;
 }
-/* line 101, ../../build/sass/screen.scss */
+/* line 112, ../../build/sass/screen.scss */
 nav .info a:hover {
   color: #fff;
 }
-/* line 105, ../../build/sass/screen.scss */
+/* line 116, ../../build/sass/screen.scss */
 nav .info h2 {
   font-family: "Contrail One", helvetica, arial, sans-serif;
   font-size: 2em;
   padding-bottom: .2em;
 }
-/* line 110, ../../build/sass/screen.scss */
+/* line 121, ../../build/sass/screen.scss */
 nav .info h3 {
   font-family: "Roboto Condensed", helvetica, arial, sans-serif;
   font-size: 1.25em;
 }
-/* line 115, ../../build/sass/screen.scss */
+/* line 126, ../../build/sass/screen.scss */
 nav .about {
   display: none;
 }
-/* line 117, ../../build/sass/screen.scss */
+/* line 128, ../../build/sass/screen.scss */
 nav .about p, nav .about a {
   font-family: helvetica;
   color: #404040;
 }
-/* line 122, ../../build/sass/screen.scss */
+/* line 133, ../../build/sass/screen.scss */
 nav .about p {
   font-size: 1em;
 }
-/* line 125, ../../build/sass/screen.scss */
+/* line 136, ../../build/sass/screen.scss */
 nav .about a {
   text-decoration: none;
   border-bottom: 1px solid;
   padding-bottom: 1px;
 }
-/* line 131, ../../build/sass/screen.scss */
+/* line 142, ../../build/sass/screen.scss */
 nav .meta {
   position: absolute;
   top: 0px;
@@ -377,14 +391,14 @@ nav .meta {
   background-color: rgba(38, 38, 38, 0.8);
   padding: 10px;
 }
-/* line 137, ../../build/sass/screen.scss */
+/* line 148, ../../build/sass/screen.scss */
 nav .meta img {
   width: 100px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-/* line 143, ../../build/sass/screen.scss */
+/* line 154, ../../build/sass/screen.scss */
 nav .meta a {
   position: relative;
   margin: 0 auto;
@@ -392,7 +406,7 @@ nav .meta a {
   display: block;
   overflow: hidden;
 }
-/* line 149, ../../build/sass/screen.scss */
+/* line 160, ../../build/sass/screen.scss */
 nav .meta a:before {
   content: " ";
   position: absolute;
@@ -412,7 +426,7 @@ nav .meta a:before {
   margin-left: -310px;
   background-color: rgba(0, 119, 218, 0.8);
 }
-/* line 158, ../../build/sass/screen.scss */
+/* line 169, ../../build/sass/screen.scss */
 nav .meta a:after {
   content: "Buy song";
   font-size: 18px;
@@ -425,29 +439,29 @@ nav .meta a:after {
   -moz-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-/* line 170, ../../build/sass/screen.scss */
+/* line 181, ../../build/sass/screen.scss */
 nav .meta a:hover:before {
   margin-left: 0px;
 }
-/* line 173, ../../build/sass/screen.scss */
+/* line 184, ../../build/sass/screen.scss */
 nav .meta a:hover:after {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 181, ../../build/sass/screen.scss */
+/* line 192, ../../build/sass/screen.scss */
 nav.image-artwork:hover .meta {
   top: -120px;
 }
-/* line 187, ../../build/sass/screen.scss */
+/* line 198, ../../build/sass/screen.scss */
 nav:hover .about p, nav:hover .about a {
   color: #737373;
 }
-/* line 192, ../../build/sass/screen.scss */
+/* line 203, ../../build/sass/screen.scss */
 nav.song-loaded {
   bottom: 0px;
 }
 
-/* line 197, ../../build/sass/screen.scss */
+/* line 208, ../../build/sass/screen.scss */
 iframe {
   min-height: 130%;
   min-width: 150%;
@@ -458,16 +472,114 @@ iframe {
   left: -30%;
 }
 
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* line 221, ../../build/sass/screen.scss */
+.controls button {
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  outline: none;
+  background-color: transparent;
+  padding: 10px;
+  margin: 0 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 231, ../../build/sass/screen.scss */
+.controls svg {
+  width: 25px;
+  height: 25px;
+}
+/* line 234, ../../build/sass/screen.scss */
+.controls svg use {
+  fill: rgba(255, 255, 255, 0.6);
+}
+/* line 240, ../../build/sass/screen.scss */
+.controls #play-pause .icon-play {
+  display: none;
+}
+/* line 243, ../../build/sass/screen.scss */
+.controls #play-pause .icon-pause {
+  display: block;
+}
+/* line 247, ../../build/sass/screen.scss */
+.controls #play-pause.paused .icon-play {
+  display: block;
+}
+/* line 250, ../../build/sass/screen.scss */
+.controls #play-pause.paused .icon-pause {
+  display: none;
+}
+/* line 256, ../../build/sass/screen.scss */
+.controls #skip .icon-spinner {
+  display: none;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+/* line 260, ../../build/sass/screen.scss */
+.controls #skip .icon-skip {
+  display: block;
+}
+
+/* line 268, ../../build/sass/screen.scss */
+.no-touch .controls button:hover {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+/* line 270, ../../build/sass/screen.scss */
+.no-touch .controls button:hover svg use {
+  fill: rgba(255, 255, 255, 0.9);
+}
+
 @media all and (min-width: 768px) {
-  /* line 206, ../../build/sass/screen.scss */
+  /* line 280, ../../build/sass/screen.scss */
   .no-touch nav .info {
     font-size: 120%;
   }
-  /* line 209, ../../build/sass/screen.scss */
+  /* line 283, ../../build/sass/screen.scss */
   .no-touch nav .about {
     display: block;
   }
-  /* line 211, ../../build/sass/screen.scss */
+  /* line 285, ../../build/sass/screen.scss */
   .no-touch nav .about .me, .no-touch nav .about .inspired {
     position: absolute;
     top: auto;
@@ -475,7 +587,7 @@ iframe {
     bottom: 10px;
     left: 10px;
   }
-  /* line 214, ../../build/sass/screen.scss */
+  /* line 288, ../../build/sass/screen.scss */
   .no-touch nav .about .inspired {
     left: auto;
     right: 10px;

@@ -54,6 +54,10 @@ input:focus, textarea:focus{
     outline:none;
 }
 
+a,input[type="submit"],button{
+    cursor:pointer;
+}
+
 /*//////////////////////////////////////
 //  mixins
 //////////////////////////////////////*/
@@ -73,21 +77,6 @@ input:focus, textarea:focus{
     &:-ms-input-placeholder { @content; }
     &::-webkit-input-placeholder { @content; } 
 }
-
-@mixin animation($params) {
-    -webkit-animation:$params;
-    -moz-animation:$params;
-    -ms-animation:$params;
-    animation:$params;
-}
-
-@mixin keyframes($name) {
-    @-webkit-keyframes $name { @content }
-    @-moz-keyframes    $name { @content }
-    @-ms-keyframes     $name { @content }
-    @keyframes         $name { @content }
-}
-
 
 /*//////////////////////////////////////
 //  silent classes

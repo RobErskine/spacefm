@@ -76,9 +76,21 @@ body.loaded > h1{
 			}
 		}
 	}
-	&.song-switching h1{
+}
+
+body.song-switching{
+	.now-playing h1{
 		@include opacity(0);
 		@include transform(scale(0));
+	}
+	.controls #skip{
+		pointer-events:none;
+		.icon-spinner{
+			display:block;
+		}
+		.icon-skip{
+			display:none;
+		}
 	}
 }
 
@@ -89,11 +101,10 @@ nav{
 	@extend %default-transition;
 	z-index:10;
 	.info{
-		@include linear-gradient(#262626, darken(#262626,5%));
 		position:relative;
 		z-index:2;
 		text-align:center;
-		padding:1em;
+		padding:2em 1em;
 		a{
 			color:#dadada;
 			text-decoration: none;
@@ -198,6 +209,69 @@ iframe{
 	min-height:130%;
 	min-width:150%;
 	@include position(absolute, -10% -10% -10% -30%);
+}
+
+@include keyframes(spin){
+	100%{
+		@include transform(rotate(360deg));
+	}
+}
+
+.controls{
+	button{
+		border:2px solid rgba(#fff,.6);
+		outline:none;
+		background-color:transparent;
+		padding:10px;
+		margin:0 10px;
+		@include appearance(none);
+		@include border-radius(50%);
+		@extend %default-transition;
+	}
+	svg{
+		width:25px;
+		height:25px;
+		use{
+			@extend %default-transition;
+			fill:rgba(#fff,.6);
+		}
+	}
+	#play-pause{
+		.icon-play{
+			display:none;
+		}
+		.icon-pause{
+			display:block;
+		}
+		&.paused{
+			.icon-play{
+				display:block;
+			}
+			.icon-pause{
+				display:none;
+			}
+		}
+	}
+	#skip{
+		.icon-spinner{
+			display:none;
+			@include animation(spin 1s linear infinite);
+		}
+		.icon-skip{
+			display:block;
+		}
+	}
+}
+
+.no-touch{
+	.controls{
+		button:hover{
+			border:2px solid rgba(#fff,.9);
+			svg use{
+				fill:rgba(#fff,.9);
+			}
+		}
+	}
 }
 
 @media all and(min-width:768px){
