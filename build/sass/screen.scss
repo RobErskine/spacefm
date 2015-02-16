@@ -261,6 +261,27 @@ iframe{
 			display:block;
 		}
 	}
+	#like{
+		display:none;
+	}
+}
+
+.soundcloud-connect{
+	position:relative;
+	z-index:9;
+}
+
+.user-registered{
+	.controls #like{
+		display:inline-block;
+		&.liked{
+			border-color:#f50;
+			pointer-events:none;
+			svg use{
+				fill:#f50;
+			}
+		}
+	}
 }
 
 .no-touch{

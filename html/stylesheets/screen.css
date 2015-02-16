@@ -560,26 +560,50 @@ iframe {
 .controls #skip .icon-skip {
   display: block;
 }
+/* line 264, ../../build/sass/screen.scss */
+.controls #like {
+  display: none;
+}
 
-/* line 268, ../../build/sass/screen.scss */
+/* line 269, ../../build/sass/screen.scss */
+.soundcloud-connect {
+  position: relative;
+  z-index: 9;
+}
+
+/* line 275, ../../build/sass/screen.scss */
+.user-registered .controls #like {
+  display: inline-block;
+}
+/* line 277, ../../build/sass/screen.scss */
+.user-registered .controls #like.liked {
+  border-color: #f50;
+  pointer-events: none;
+}
+/* line 280, ../../build/sass/screen.scss */
+.user-registered .controls #like.liked svg use {
+  fill: #f50;
+}
+
+/* line 289, ../../build/sass/screen.scss */
 .no-touch .controls button:hover {
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
-/* line 270, ../../build/sass/screen.scss */
+/* line 291, ../../build/sass/screen.scss */
 .no-touch .controls button:hover svg use {
   fill: rgba(255, 255, 255, 0.9);
 }
 
 @media all and (min-width: 768px) {
-  /* line 280, ../../build/sass/screen.scss */
+  /* line 301, ../../build/sass/screen.scss */
   .no-touch nav .info {
     font-size: 120%;
   }
-  /* line 283, ../../build/sass/screen.scss */
+  /* line 304, ../../build/sass/screen.scss */
   .no-touch nav .about {
     display: block;
   }
-  /* line 285, ../../build/sass/screen.scss */
+  /* line 306, ../../build/sass/screen.scss */
   .no-touch nav .about .me, .no-touch nav .about .inspired {
     position: absolute;
     top: auto;
@@ -587,7 +611,7 @@ iframe {
     bottom: 10px;
     left: 10px;
   }
-  /* line 288, ../../build/sass/screen.scss */
+  /* line 309, ../../build/sass/screen.scss */
   .no-touch nav .about .inspired {
     left: auto;
     right: 10px;
