@@ -99,7 +99,7 @@ nav{
 	@include transition(all .5s ease-in-out);
 	@include position(absolute, auto 0px -200px 0px);
 	@extend %default-transition;
-	z-index:10;
+	z-index:8;
 	.info{
 		position:relative;
 		z-index:2;
@@ -267,8 +267,41 @@ iframe{
 }
 
 .soundcloud-connect{
-	position:relative;
+	@include position(absolute, auto 20px 26px auto);
+	@include appearance(none);
 	z-index:9;
+	background-color:transparent;
+	border:2px solid rgba(#fff,.33);
+	color:rgba(#fff,.33);
+	font-size:14px;
+	padding:8px 20px 10px;
+	line-height:2;
+	font-family:$font-body;
+	text-transform:uppercase;
+	outline:none;
+	@include border-radius(12px);
+	@include transition(color .3s ease-in-out,border .3s ease-in-out,background-color .3s ease-in-out, opacity .6s ease-in-out 5s);
+	svg{
+		height:18px;
+		width:18px;
+		padding-left:2px;
+		position:relative;
+		top:3px;
+		use{
+			@extend %default-transition;
+			fill:rgba(#fff,.33);
+		}
+	}
+}
+
+.no-touch{
+	.soundcloud-connect:hover{
+		background-color:#fff;
+		color:#f50;
+		svg use{
+			fill:#f50;
+		}
+	}
 }
 
 .user-registered{
@@ -276,11 +309,14 @@ iframe{
 		display:inline-block;
 		&.liked{
 			border-color:#f50;
-			pointer-events:none;
 			svg use{
 				fill:#f50;
 			}
 		}
+	}
+	.soundcloud-connect{
+		pointer-events:none;
+		@include opacity(0);
 	}
 }
 

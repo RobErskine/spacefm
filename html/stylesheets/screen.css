@@ -143,7 +143,7 @@ a, input[type="submit"], button {
 }
 
 /* line 102, ../../build/sass/partials/_base.scss */
-.now-playing h1, nav, nav .info a, nav .about p, nav .about a, nav .meta, nav .meta a:after, .controls button, .controls svg use {
+.now-playing h1, nav, nav .info a, nav .about p, nav .about a, nav .meta, nav .meta a:after, .controls button, .controls svg use, .soundcloud-connect svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
@@ -332,7 +332,7 @@ nav {
   right: 0px;
   bottom: -200px;
   left: 0px;
-  z-index: 10;
+  z-index: 8;
 }
 /* line 103, ../../build/sass/screen.scss */
 nav .info {
@@ -567,43 +567,94 @@ iframe {
 
 /* line 269, ../../build/sass/screen.scss */
 .soundcloud-connect {
-  position: relative;
+  position: absolute;
+  top: auto;
+  right: 20px;
+  bottom: 26px;
+  left: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
   z-index: 9;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.33);
+  color: rgba(255, 255, 255, 0.33);
+  font-size: 14px;
+  padding: 8px 20px 10px;
+  line-height: 2;
+  font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  outline: none;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
+  -moz-transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
+}
+/* line 284, ../../build/sass/screen.scss */
+.soundcloud-connect svg {
+  height: 18px;
+  width: 18px;
+  padding-left: 2px;
+  position: relative;
+  top: 3px;
+}
+/* line 290, ../../build/sass/screen.scss */
+.soundcloud-connect svg use {
+  fill: rgba(255, 255, 255, 0.33);
 }
 
-/* line 275, ../../build/sass/screen.scss */
-.user-registered .controls #like {
-  display: inline-block;
+/* line 298, ../../build/sass/screen.scss */
+.no-touch .soundcloud-connect:hover {
+  background-color: #fff;
+  color: #f50;
 }
-/* line 277, ../../build/sass/screen.scss */
-.user-registered .controls #like.liked {
-  border-color: #f50;
-  pointer-events: none;
-}
-/* line 280, ../../build/sass/screen.scss */
-.user-registered .controls #like.liked svg use {
+/* line 301, ../../build/sass/screen.scss */
+.no-touch .soundcloud-connect:hover svg use {
   fill: #f50;
 }
 
-/* line 289, ../../build/sass/screen.scss */
+/* line 308, ../../build/sass/screen.scss */
+.user-registered .controls #like {
+  display: inline-block;
+}
+/* line 310, ../../build/sass/screen.scss */
+.user-registered .controls #like.liked {
+  border-color: #f50;
+}
+/* line 312, ../../build/sass/screen.scss */
+.user-registered .controls #like.liked svg use {
+  fill: #f50;
+}
+/* line 317, ../../build/sass/screen.scss */
+.user-registered .soundcloud-connect {
+  pointer-events: none;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 325, ../../build/sass/screen.scss */
 .no-touch .controls button:hover {
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
-/* line 291, ../../build/sass/screen.scss */
+/* line 327, ../../build/sass/screen.scss */
 .no-touch .controls button:hover svg use {
   fill: rgba(255, 255, 255, 0.9);
 }
 
 @media all and (min-width: 768px) {
-  /* line 301, ../../build/sass/screen.scss */
+  /* line 337, ../../build/sass/screen.scss */
   .no-touch nav .info {
     font-size: 120%;
   }
-  /* line 304, ../../build/sass/screen.scss */
+  /* line 340, ../../build/sass/screen.scss */
   .no-touch nav .about {
     display: block;
   }
-  /* line 306, ../../build/sass/screen.scss */
+  /* line 342, ../../build/sass/screen.scss */
   .no-touch nav .about .me, .no-touch nav .about .inspired {
     position: absolute;
     top: auto;
@@ -611,7 +662,7 @@ iframe {
     bottom: 10px;
     left: 10px;
   }
-  /* line 309, ../../build/sass/screen.scss */
+  /* line 345, ../../build/sass/screen.scss */
   .no-touch nav .about .inspired {
     left: auto;
     right: 10px;
