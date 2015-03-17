@@ -102,7 +102,7 @@ window.onload = function() {
       SC.get('/me', function(me) { 
         console.log(me);
         $('body').addClass('user-registered');
-        $('.soundcloud-connect').html("You are now connected to Soundcloud");
+        $('.soundcloud-connect').fadeOut();
         return me; 
       });
     });
@@ -141,10 +141,13 @@ window.onload = function() {
         });
       }
 
+      $('#like').removeClass('pending');
+
     });
   };
 
   $('#like').on("click",function(){
+    $(this).addClass('pending');
     likeSong($('#like').data("trackId"));
   });
 
@@ -236,7 +239,6 @@ window.onload = function() {
           // like / dislike the song depending on what it is
           $('#like').data('trackId',track.id);
 
-          $('#artwork a, #artwork img').remove();
 
           $('#title').empty().html('<a data-popup="true" href="' + track.permalink_url + '">' + track.title + '</a>');
           $('#artist').empty().html('<a data-popup="true" href="' + track.user.permalink_url + '">' + track.user.username + '</a>');
@@ -247,26 +249,39 @@ window.onload = function() {
             $('body').removeClass('song-switching');
           },600);
 
-          if(data.artwork_url != null){
+        // get artwork in if it exists
+          if(track.artwork_url != null){
+            $('#artwork *').remove();
             $('#artwork').append('<img src="' + track.artwork_url + '">');
-            $('nav').addClass('image-artwork');
-            if( track.purchase_url != null){
-              $('#artwork img').wrap('<a data-popup="true" href="' + track.purchase_url + '">');
-            }
           }
           else{
             $('#artwork').remove("img");
-            $('#artwork').remove("a");
-            $('nav').removeClass('image-artwork');
           }
 
+        // get purchase url in there if it exists
+          $('.purchase').remove();
+
+          if( track.purchase_url != null){
+            $('.song-details').append('<a href="'+track.purchase_url+'" target="_blank" class="purchase">Purchase Song</a>');
+          }
+          else{
+            $('.purchase').remove();
+          }
+
+        // update listen on soundcloud link
+          $('.song-details .soundcloud').attr('href',track.permalink_url);
+
+        // update artist
+          $('.uploaded span').text(track.user.username);
+          $('.uploaded').attr('href',track.user.permalink_url); 
+
           if(document.hidden){
-            songUpdate(data.songs[currentTrack].song, data.songs[currentTrack].artist, track.artwork_url);
+            songUpdate(track.songs[currentTrack].song, track.songs[currentTrack].artist, track.artwork_url);
           }
 
           $('#artwork a').attr("href", track.purchase_url);
 
-          $('nav').addClass('song-loaded');
+          $('body').addClass('song-loaded');
 
         });
       }
@@ -328,7 +343,6 @@ window.onresize = function() {
   var background = new Path.Rectangle(view.bounds);
 
   buildStars();
-  triangle.build(50);
 };
 
 var random = function(minimum, maximum) {

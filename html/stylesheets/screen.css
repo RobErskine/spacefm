@@ -143,14 +143,14 @@ a, input[type="submit"], button {
 }
 
 /* line 102, ../../build/sass/partials/_base.scss */
-.now-playing h1, nav, nav .info a, nav .about p, nav .about a, nav .meta, nav .meta a:after, .controls button, .controls svg use, .soundcloud-connect svg use {
+.now-playing h1, nav, .controls button, .controls svg use, .song-details a, .song-info, .soundcloud-connect svg use {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
 /* line 111, ../../build/sass/partials/_base.scss */
-.now-playing, nav .meta a:after {
+.now-playing {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -196,16 +196,18 @@ canvas {
   right: 0px;
   bottom: 0px;
   left: 0px;
+  z-index: 1;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
 
-/* line 21, ../../build/sass/screen.scss */
+/* line 23, ../../build/sass/screen.scss */
 h2, h3, .about, .meta {
   display: none !important;
 }
 
-/* line 25, ../../build/sass/screen.scss */
+/* line 27, ../../build/sass/screen.scss */
 body > h1 {
   font-family: "Roboto Condensed", helvetica, arial, sans-serif;
   font-size: 20px;
@@ -231,20 +233,20 @@ body > h1 {
   z-index: 9;
 }
 
-/* line 39, ../../build/sass/screen.scss */
+/* line 41, ../../build/sass/screen.scss */
 body.loaded > h1 {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
   letter-spacing: .5em;
 }
 
-/* line 44, ../../build/sass/screen.scss */
+/* line 46, ../../build/sass/screen.scss */
 .now-playing {
   display: block;
   width: 100%;
   z-index: 9;
 }
-/* line 49, ../../build/sass/screen.scss */
+/* line 51, ../../build/sass/screen.scss */
 .now-playing h1 {
   width: 100%;
   text-align: center;
@@ -261,7 +263,7 @@ body.loaded > h1 {
   -o-transform: scale(1);
   transform: scale(1);
 }
-/* line 60, ../../build/sass/screen.scss */
+/* line 62, ../../build/sass/screen.scss */
 .now-playing h1 span {
   position: absolute;
   top: auto;
@@ -279,7 +281,7 @@ body.loaded > h1 {
   font-weight: 700;
   padding-top: 1.3em;
 }
-/* line 68, ../../build/sass/screen.scss */
+/* line 70, ../../build/sass/screen.scss */
 .now-playing h1 span:before {
   content: " ";
   display: block;
@@ -298,7 +300,7 @@ body.loaded > h1 {
   background-color: rgba(255, 254, 237, 0.13);
 }
 
-/* line 82, ../../build/sass/screen.scss */
+/* line 84, ../../build/sass/screen.scss */
 body.song-switching .now-playing h1 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -308,20 +310,20 @@ body.song-switching .now-playing h1 {
   -o-transform: scale(0);
   transform: scale(0);
 }
-/* line 86, ../../build/sass/screen.scss */
+/* line 88, ../../build/sass/screen.scss */
 body.song-switching .controls #skip {
   pointer-events: none;
 }
-/* line 88, ../../build/sass/screen.scss */
+/* line 90, ../../build/sass/screen.scss */
 body.song-switching .controls #skip .icon-spinner {
   display: block;
 }
-/* line 91, ../../build/sass/screen.scss */
+/* line 93, ../../build/sass/screen.scss */
 body.song-switching .controls #skip .icon-skip {
   display: none;
 }
 
-/* line 97, ../../build/sass/screen.scss */
+/* line 99, ../../build/sass/screen.scss */
 nav {
   height: auto;
   -webkit-transition: all 0.5s ease-in-out;
@@ -331,145 +333,19 @@ nav {
   top: auto;
   right: 0px;
   bottom: -200px;
-  left: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-width: 400px;
   z-index: 8;
 }
-/* line 103, ../../build/sass/screen.scss */
-nav .info {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 2em 1em;
-}
-/* line 108, ../../build/sass/screen.scss */
-nav .info a {
-  color: #dadada;
-  text-decoration: none;
-}
-/* line 112, ../../build/sass/screen.scss */
-nav .info a:hover {
-  color: #fff;
-}
-/* line 116, ../../build/sass/screen.scss */
-nav .info h2 {
-  font-family: "Contrail One", helvetica, arial, sans-serif;
-  font-size: 2em;
-  padding-bottom: .2em;
-}
-/* line 121, ../../build/sass/screen.scss */
-nav .info h3 {
-  font-family: "Roboto Condensed", helvetica, arial, sans-serif;
-  font-size: 1.25em;
-}
-/* line 126, ../../build/sass/screen.scss */
-nav .about {
-  display: none;
-}
-/* line 128, ../../build/sass/screen.scss */
-nav .about p, nav .about a {
-  font-family: helvetica;
-  color: #404040;
-}
-/* line 133, ../../build/sass/screen.scss */
-nav .about p {
-  font-size: 1em;
-}
-/* line 136, ../../build/sass/screen.scss */
-nav .about a {
-  text-decoration: none;
-  border-bottom: 1px solid;
-  padding-bottom: 1px;
-}
-/* line 142, ../../build/sass/screen.scss */
-nav .meta {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 1;
-  background-color: rgba(38, 38, 38, 0.8);
-  padding: 10px;
-}
-/* line 148, ../../build/sass/screen.scss */
-nav .meta img {
-  width: 100px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-/* line 154, ../../build/sass/screen.scss */
-nav .meta a {
-  position: relative;
-  margin: 0 auto;
-  width: 100px;
-  display: block;
-  overflow: hidden;
-}
-/* line 160, ../../build/sass/screen.scss */
-nav .meta a:before {
-  content: " ";
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  bottom: -30px;
-  left: -30px;
-  -webkit-transform: rotate(110deg);
-  -moz-transform: rotate(110deg);
-  -ms-transform: rotate(110deg);
-  -o-transform: rotate(110deg);
-  transform: rotate(110deg);
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  display: block;
-  margin-left: -310px;
-  background-color: rgba(0, 119, 218, 0.8);
-}
-/* line 169, ../../build/sass/screen.scss */
-nav .meta a:after {
-  content: "Buy song";
-  font-size: 18px;
-  text-align: center;
-  color: #dadada;
-  font-family: "Contrail One", helvetica, arial, sans-serif;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition-delay: 0.4s;
-  -moz-transition-delay: 0.4s;
-  transition-delay: 0.4s;
-}
-/* line 181, ../../build/sass/screen.scss */
-nav .meta a:hover:before {
-  margin-left: 0px;
-}
-/* line 184, ../../build/sass/screen.scss */
-nav .meta a:hover:after {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-/* line 192, ../../build/sass/screen.scss */
-nav.image-artwork:hover .meta {
-  top: -120px;
-}
-/* line 198, ../../build/sass/screen.scss */
-nav:hover .about p, nav:hover .about a {
-  color: #737373;
-}
-/* line 203, ../../build/sass/screen.scss */
-nav.song-loaded {
-  bottom: 0px;
-}
 
-/* line 208, ../../build/sass/screen.scss */
-iframe {
-  min-height: 130%;
-  min-width: 150%;
-  position: absolute;
-  top: -10%;
-  right: -10%;
-  bottom: -10%;
-  left: -30%;
+/* line 109, ../../build/sass/screen.scss */
+.song-loaded nav {
+  bottom: 20px;
 }
 
 @-webkit-keyframes spin {
@@ -508,12 +384,25 @@ iframe {
     transform: rotate(360deg);
   }
 }
-/* line 221, ../../build/sass/screen.scss */
+/* line 119, ../../build/sass/screen.scss */
+.icon-spinner {
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+/* line 123, ../../build/sass/screen.scss */
+.controls {
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 127, ../../build/sass/screen.scss */
 .controls button {
   border: 2px solid rgba(255, 255, 255, 0.6);
   outline: none;
   background-color: transparent;
-  padding: 10px;
+  padding: 6px;
   margin: 0 10px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -524,53 +413,114 @@ iframe {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 231, ../../build/sass/screen.scss */
+/* line 137, ../../build/sass/screen.scss */
 .controls svg {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
-/* line 234, ../../build/sass/screen.scss */
+/* line 140, ../../build/sass/screen.scss */
 .controls svg use {
   fill: rgba(255, 255, 255, 0.6);
 }
-/* line 240, ../../build/sass/screen.scss */
+/* line 146, ../../build/sass/screen.scss */
 .controls #play-pause .icon-play {
   display: none;
 }
-/* line 243, ../../build/sass/screen.scss */
+/* line 149, ../../build/sass/screen.scss */
 .controls #play-pause .icon-pause {
   display: block;
 }
-/* line 247, ../../build/sass/screen.scss */
+/* line 153, ../../build/sass/screen.scss */
 .controls #play-pause.paused .icon-play {
   display: block;
 }
-/* line 250, ../../build/sass/screen.scss */
+/* line 156, ../../build/sass/screen.scss */
 .controls #play-pause.paused .icon-pause {
   display: none;
 }
-/* line 256, ../../build/sass/screen.scss */
+/* line 162, ../../build/sass/screen.scss */
 .controls #skip .icon-spinner {
   display: none;
-  -webkit-animation: spin 1s linear infinite;
-  -moz-animation: spin 1s linear infinite;
-  animation: spin 1s linear infinite;
 }
-/* line 260, ../../build/sass/screen.scss */
+/* line 165, ../../build/sass/screen.scss */
 .controls #skip .icon-skip {
   display: block;
 }
-/* line 264, ../../build/sass/screen.scss */
+/* line 169, ../../build/sass/screen.scss */
 .controls #like {
   display: none;
 }
 
-/* line 269, ../../build/sass/screen.scss */
+@media all and (min-width: 800px) {
+  /* line 176, ../../build/sass/screen.scss */
+  .controls button {
+    padding: 10px;
+  }
+  /* line 179, ../../build/sass/screen.scss */
+  .controls svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+/* line 185, ../../build/sass/screen.scss */
+#artwork {
+  cursor: pointer;
+  float: left;
+}
+
+/* line 190, ../../build/sass/screen.scss */
+.song-details {
+  float: left;
+  padding-left: 1em;
+  font-size: 16px;
+  font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+  width: 200px;
+  z-index: 9;
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 0px;
+  left: 100px;
+}
+/* line 198, ../../build/sass/screen.scss */
+.song-details a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding-top: 12px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+}
+/* line 206, ../../build/sass/screen.scss */
+.song-details a:hover {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+/* line 211, ../../build/sass/screen.scss */
+.song-info {
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: 15px;
+  left: 15px;
+  z-index: 1;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* line 218, ../../build/sass/screen.scss */
+.song-loaded .song-info {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* line 222, ../../build/sass/screen.scss */
 .soundcloud-connect {
   position: absolute;
   top: auto;
   right: 20px;
-  bottom: 26px;
+  bottom: 19px;
   left: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -594,77 +544,81 @@ iframe {
   -moz-transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
 }
-/* line 284, ../../build/sass/screen.scss */
+/* line 237, ../../build/sass/screen.scss */
 .soundcloud-connect svg {
-  height: 18px;
-  width: 18px;
-  padding-left: 2px;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
   position: relative;
-  top: 3px;
+  top: 5px;
+  left: 5px;
+  display: block;
 }
-/* line 290, ../../build/sass/screen.scss */
+/* line 244, ../../build/sass/screen.scss */
 .soundcloud-connect svg use {
   fill: rgba(255, 255, 255, 0.33);
 }
 
-/* line 298, ../../build/sass/screen.scss */
+@media all and (min-width: 700px) {
+  /* line 253, ../../build/sass/screen.scss */
+  .soundcloud-connect svg {
+    display: inline;
+  }
+}
+/* line 260, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover {
   background-color: #fff;
   color: #f50;
 }
-/* line 301, ../../build/sass/screen.scss */
+/* line 263, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover svg use {
   fill: #f50;
 }
 
-/* line 308, ../../build/sass/screen.scss */
+/* line 270, ../../build/sass/screen.scss */
 .user-registered .controls #like {
   display: inline-block;
 }
-/* line 310, ../../build/sass/screen.scss */
+/* line 272, ../../build/sass/screen.scss */
+.user-registered .controls #like .icon-heart {
+  display: block;
+}
+/* line 275, ../../build/sass/screen.scss */
+.user-registered .controls #like .icon-spinner {
+  display: none;
+}
+/* line 278, ../../build/sass/screen.scss */
+.user-registered .controls #like.pending {
+  pointer-events: none;
+}
+/* line 280, ../../build/sass/screen.scss */
+.user-registered .controls #like.pending .icon-heart {
+  display: none;
+}
+/* line 283, ../../build/sass/screen.scss */
+.user-registered .controls #like.pending .icon-spinner {
+  display: block;
+}
+/* line 287, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked {
   border-color: #f50;
 }
-/* line 312, ../../build/sass/screen.scss */
+/* line 289, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked svg use {
   fill: #f50;
 }
-/* line 317, ../../build/sass/screen.scss */
+/* line 294, ../../build/sass/screen.scss */
 .user-registered .soundcloud-connect {
   pointer-events: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 325, ../../build/sass/screen.scss */
+/* line 302, ../../build/sass/screen.scss */
 .no-touch .controls button:hover {
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
-/* line 327, ../../build/sass/screen.scss */
+/* line 304, ../../build/sass/screen.scss */
 .no-touch .controls button:hover svg use {
   fill: rgba(255, 255, 255, 0.9);
-}
-
-@media all and (min-width: 768px) {
-  /* line 337, ../../build/sass/screen.scss */
-  .no-touch nav .info {
-    font-size: 120%;
-  }
-  /* line 340, ../../build/sass/screen.scss */
-  .no-touch nav .about {
-    display: block;
-  }
-  /* line 342, ../../build/sass/screen.scss */
-  .no-touch nav .about .me, .no-touch nav .about .inspired {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: 10px;
-    left: 10px;
-  }
-  /* line 345, ../../build/sass/screen.scss */
-  .no-touch nav .about .inspired {
-    left: auto;
-    right: 10px;
-  }
 }

@@ -14,8 +14,10 @@ body{
 
 canvas{
 	@include position(absolute, 0px 0px 0px 0px);
+	z-index:1;
 	width:100%;
 	height:100%;
+	pointer-events:none;
 }
 
 h2,h3,.about,.meta{
@@ -97,118 +99,15 @@ body.song-switching{
 nav{
 	height: auto;
 	@include transition(all .5s ease-in-out);
-	@include position(absolute, auto 0px -200px 0px);
+	@include position(absolute, auto 0px -200px 50%);
+	@include transform(translateX(-50%));
 	@extend %default-transition;
+	max-width:400px;
 	z-index:8;
-	.info{
-		position:relative;
-		z-index:2;
-		text-align:center;
-		padding:2em 1em;
-		a{
-			color:#dadada;
-			text-decoration: none;
-			@extend %default-transition;
-			&:hover{
-				color:#fff;
-			}
-		}
-		h2{
-			font-family:$font-headline;
-			font-size:2em;
-			padding-bottom:.2em;
-		}
-		h3{
-			font-family: $font-body;
-			font-size:1.25em;
-		}
-	}
-	.about{
-		display:none;
-		p,a{
-			font-family:$font-sans;
-			color:#404040;
-			@extend %default-transition;
-		}
-		p{
-			font-size:1em;
-		}
-		a{
-			text-decoration:none;
-			border-bottom:1px solid;
-			padding-bottom:1px;
-		}
-	}
-	.meta{
-		@extend %default-transition;
-		@include position(absolute, 0px 0px 0px 0px);
-		z-index:1;
-		background-color:rgba(#262626, .8);
-		padding:10px;
-		img{
-			width:100px;
-			height:auto;
-			display:block;
-			margin:0 auto;
-		}
-		a{
-			position:relative;
-			margin:0 auto;
-			width:100px;
-			display:block;
-			overflow:hidden;
-			&:before{
-				content:" ";
-				@include position(absolute, -30px -30px -30px -30px);
-				@include transform(rotate(110deg));
-				@include transition(all .5s ease-in-out);
-				display:block;
-				margin-left:-310px;
-				background-color:rgba(#0077da,.8);
-			}
-			&:after{
-				content:"Buy song";
-				@extend %absolute-middle;
-				font-size:18px;
-				text-align:center;
-				color:#dadada;
-				font-family:$font-headline;
-				@include opacity(0);
-				@extend %default-transition;
-				@include transition-delay(.4s);
-			}
-			&:hover{
-				&:before{
-					margin-left:0px;
-				}
-				&:after{
-					@include opacity(1);
-				}
-
-			}
-		}
-	}
-	&.image-artwork:hover{
-		.meta{
-			top:-120px;	
-		}
-	}
-	&:hover{
-		.about{
-			p,a{
-				color:#737373;
-			}
-		}
-	}
-	&.song-loaded{
-		bottom:0px;
-	}
 }
 
-iframe{
-	min-height:130%;
-	min-width:150%;
-	@include position(absolute, -10% -10% -10% -30%);
+.song-loaded nav{
+	bottom:20px;
 }
 
 @include keyframes(spin){
@@ -217,20 +116,27 @@ iframe{
 	}
 }
 
+.icon-spinner{
+	@include animation(spin 1s linear infinite);
+}
+
 .controls{
+	width:auto;
+	margin:0 auto;
+	text-align:center;
 	button{
 		border:2px solid rgba(#fff,.6);
 		outline:none;
 		background-color:transparent;
-		padding:10px;
+		padding:6px;
 		margin:0 10px;
 		@include appearance(none);
 		@include border-radius(50%);
 		@extend %default-transition;
 	}
 	svg{
-		width:25px;
-		height:25px;
+		width:20px;
+		height:20px;
 		use{
 			@extend %default-transition;
 			fill:rgba(#fff,.6);
@@ -255,7 +161,6 @@ iframe{
 	#skip{
 		.icon-spinner{
 			display:none;
-			@include animation(spin 1s linear infinite);
 		}
 		.icon-skip{
 			display:block;
@@ -266,8 +171,56 @@ iframe{
 	}
 }
 
+@media all and(min-width:800px){
+	.controls{
+		button{
+			padding:10px;
+		}
+		svg{
+			@include size(26px);
+		}
+	}
+}
+
+#artwork{
+	cursor:pointer;
+	float:left;
+}
+
+.song-details{
+	float:left;
+	padding-left:1em;
+	font-size:16px;
+	font-family:$font-body;
+	width:200px;
+	z-index:9;
+	@include position(absolute, auto auto 0px 100px); 
+	a{
+		display:block;
+		color:#fff;
+		text-decoration: none;
+		padding-top:12px;
+		@include opacity(.2);
+		@extend %default-transition;
+	}
+	a:hover{
+		@include opacity(.8);
+	}
+}
+
+.song-info{
+	@include position(absolute, auto auto 15px 15px);
+	z-index:1;
+	@include opacity(0);
+	@extend %default-transition;
+}
+
+.song-loaded .song-info{
+	@include opacity(1);
+}
+
 .soundcloud-connect{
-	@include position(absolute, auto 20px 26px auto);
+	@include position(absolute, auto 20px 19px auto);
 	@include appearance(none);
 	z-index:9;
 	background-color:transparent;
@@ -282,14 +235,23 @@ iframe{
 	@include border-radius(12px);
 	@include transition(color .3s ease-in-out,border .3s ease-in-out,background-color .3s ease-in-out, opacity .6s ease-in-out 5s);
 	svg{
-		height:18px;
-		width:18px;
-		padding-left:2px;
+		@include size(24px);
+		margin:0 auto;
 		position:relative;
-		top:3px;
+		top:5px;
+		left:5px;
+		display:block;
 		use{
 			@extend %default-transition;
 			fill:rgba(#fff,.33);
+		}
+	}
+}
+
+@media all and(min-width:700px){
+	.soundcloud-connect{
+		svg{
+			display:inline;
 		}
 	}
 }
@@ -307,6 +269,21 @@ iframe{
 .user-registered{
 	.controls #like{
 		display:inline-block;
+		.icon-heart{
+			display:block;
+		}
+		.icon-spinner{
+			display:none;
+		}
+		&.pending{
+			pointer-events:none;
+			.icon-heart{
+				display:none;
+			}
+			.icon-spinner{
+				display:block;
+			}
+		}
 		&.liked{
 			border-color:#f50;
 			svg use{
@@ -326,26 +303,6 @@ iframe{
 			border:2px solid rgba(#fff,.9);
 			svg use{
 				fill:rgba(#fff,.9);
-			}
-		}
-	}
-}
-
-@media all and(min-width:768px){
-	.no-touch{
-		nav{
-			.info{
-				font-size:120%;
-			}
-			.about{
-				display:block;
-				.me,.inspired{
-					@include position(absolute, auto auto 10px 10px)
-				}
-				.inspired{
-					left:auto;
-					right:10px;
-				}
 			}
 		}
 	}
