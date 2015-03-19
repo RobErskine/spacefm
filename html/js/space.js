@@ -4,7 +4,7 @@
 var debugging = false;
 
 paper.install(window);
-var SQRT_3 = Math.pow(3, 0.5);
+var SQRT_3 = Math.pow(2, 0.5);
 var triangle, D, mousePos, position;
 var count = 50;
 
@@ -40,7 +40,7 @@ window.onload = function() {
 // ---------------------------------------------------
   $('body').addClass('loaded');
   $('.now-playing h1').fitText(1.2);
-  triangle.changeColor(hexToRGBA("#ffffff","0.8"));
+  triangle.changeColor("#ffffff","0.8");
 
   var clientID = '3869b2e3b6e85b175e114b4e19042775';
 
@@ -77,15 +77,15 @@ window.onload = function() {
       Notification.requestPermission();
     }
 
-    var notification = new Notification('SpaceFM - Now Playing:', {
+    var notification = new Notification('FloatinginSpace.fm - Now Playing:', {
       icon: trackImage,
       body: trackTitle + " by " + trackArtist,
     });
 
 
-    notification.onclick = function () {
-      window.open("http://changethistotherightaddress.com");
-    };
+    //notification.onclick = function () {
+    //  window.open("http://changethistotherightaddress.com");
+    //};
 
 
     setTimeout(function(){
@@ -150,6 +150,13 @@ window.onload = function() {
     $(this).addClass('pending');
     likeSong($('#like').data("trackId"));
   });
+
+function popitup(url,height,width) {
+  newwindow=window.open(url,'name','height='+height+',width='+width);
+  if (window.focus) {newwindow.focus()}
+  return false;
+}
+
 
 // ---------------------------------------------------
 //  Retrieve tracks from space.fm api and start playing
@@ -249,14 +256,26 @@ window.onload = function() {
             $('body').removeClass('song-switching');
           },600);
 
+          document.title = data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist + ' | FloatinginSpace.fm';
+
         // get artwork in if it exists
           if(track.artwork_url != null){
             $('#artwork *').remove();
             $('#artwork').append('<img src="' + track.artwork_url + '">');
           }
           else{
-            $('#artwork').remove("img");
+            $('#artwork *').remove();
+            var randomPlaceholder = Math.floor((Math.random() * 4) + 1);
+            $('#artwork').append('<img src="/img/placeholder' + randomPlaceholder + '.jpg">');
           }
+
+          var albumArt = $('#artwork img');
+            if (albumArt[0].complete){
+              adjustColors()
+            }
+            else{
+              albumArt.load(adjustColors);
+            }
 
         // get purchase url in there if it exists
           $('.purchase').remove();
@@ -275,46 +294,93 @@ window.onload = function() {
           $('.uploaded span').text(track.user.username);
           $('.uploaded').attr('href',track.user.permalink_url); 
 
+        // update share info
+          
+          $('a.twitter-share').attr('href','http://twitter.com/intent/tweet?status=Currently listening to '+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist+'+'+'on http://floatinginspace.fm via @floatingspacefm');
+          $('a.facebook-share').attr('href','http://www.facebook.com/share.php?u=http://floatinginspace.fm&title='+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
+          
+          $('.share a').on('click',function(){
+            event.preventDefault();
+            popitup($(this).attr('href'),265,550);
+          });
+
           if(document.hidden){
-            songUpdate(track.songs[currentTrack].song, track.songs[currentTrack].artist, track.artwork_url);
+            songUpdate(data.songs[currentTrack].song, data.songs[currentTrack].artist, track.artwork_url);
           }
 
           $('#artwork a').attr("href", track.purchase_url);
 
           $('body').addClass('song-loaded');
 
+          // ---------------------------------------------------
+          //  keyboard shortcuts
+          // ---------------------------------------------------
+          $(document).bind('keydown','space',function(){
+            sound.togglePause();
+            $('#play-pause').toggleClass("paused");
+          });
+
+          $(document).bind('keydown','right',function(){
+            sound.stop();
+          });
+
+          $(document).bind('keydown','s',function(){
+            $('#like').addClass('pending');
+            likeSong($('#like').data("trackId"));
+          });
+
+          $(document).bind('keydown','l',function(){
+            $('#like').addClass('pending');
+            likeSong($('#like').data("trackId"));
+          });
+
         });
       }
     });
   };
 
-
-// ---------------------------------------------------
-//  Convert hex values to rgba for the ship
-// ---------------------------------------------------
-  function hexToRGBA(input,alpha){
-    var s = input;
-    var patt = /^#([\da-fA-F]{2})([\da-fA-F]{2})([\da-fA-F]{2})$/;
-    var matches = patt.exec(s);
-    var rgba = "rgba("+parseInt(matches[1], 16)+","+parseInt(matches[2], 16)+","+parseInt(matches[3], 16)+","+ alpha+");";
-    return rgba;
-  };
-
 // ---------------------------------------------------
 //  Play a new track, shuffle colors, and update them
 // ---------------------------------------------------
+  function adjustColors(){
+    huey($('#artwork img').attr('src'), function(error, rgb, image) {
+      if(rgb == null){
+        $('body').css('background-color','rgb(25,25,25)');
+        triangle.changeColor('rgb(255,255,255)');
+      }
+      else{
+        var red = rgb[0]
+        var green = rgb[1]
+        var blue = rgb[2]
+
+        $('body').css('background-color','rgb('+red+','+green+','+blue+')');
+        triangle.changeColor('rgb('+(red+30)+','+(green+30)+','+(blue+30));
+      }
+
+      $('body').css('background-color','rgb('+red+','+green+','+blue+')');
+      triangle.changeColor('rgb('+(red+50)+','+(green+50)+','+(blue+50));
+    });
+  }
+
   function playMusic(message, currentTrack, data){
     if(debugging === true){
       console.log(message);
     }
 
+    var albumArt = $('#artwork img');
+    if (albumArt[0].complete){
+      adjustColors()
+    }
+    else{
+      albumArt.load(adjustColors);
+    }
+
+    $('body').removeClass('bg-ready');
+
     //shuffle(tracks);
     shuffle(colors);
 
     playNewTrack(data, currentTrack);
-    
-    triangle.changeColor(hexToRGBA(colors[0][1],"0.8"));
-    $('body').css('background-color',colors[0][0]);
   }
 
 // ---------------------------------------------------

@@ -26,7 +26,7 @@ h2,h3,.about,.meta{
 
 body > h1{
 	font-family:$font-body;
-	font-size:20px;
+	font-size:16px;
 	font-weight:700;
 	color:#fffeed;
 	text-transform: uppercase;
@@ -52,7 +52,7 @@ body.loaded > h1{
 		width:100%;
 		text-align:center;
 		position:relative;
-		color:rgba(#fffeed, .13);
+		color:rgba(#fffeed, .33);
 		font-family:$font-headline;
 		text-transform: uppercase;
 		z-index:9;
@@ -148,6 +148,7 @@ nav{
 		}
 		.icon-pause{
 			display:block;
+			padding:2px;
 		}
 		&.paused{
 			.icon-play{
@@ -183,7 +184,6 @@ nav{
 }
 
 #artwork{
-	cursor:pointer;
 	float:left;
 }
 
@@ -192,10 +192,10 @@ nav{
 	padding-left:1em;
 	font-size:16px;
 	font-family:$font-body;
-	width:200px;
+	width:300px;
 	z-index:9;
 	@include position(absolute, auto auto 0px 100px); 
-	a{
+	& > a{
 		display:block;
 		color:#fff;
 		text-decoration: none;
@@ -203,13 +203,35 @@ nav{
 		@include opacity(.2);
 		@extend %default-transition;
 	}
+	svg{
+		@include size(20px);
+		margin-left:5px;
+	}
+	svg use{
+		fill:#fff;
+		@extend %default-transition;
+	}
 	a:hover{
 		@include opacity(.8);
+	}
+	.share{
+		color:rgba(#fff,.2);
+		padding-top:4px;
+		a{
+			display:inline-block;
+			@include opacity(.2);
+			@extend %default-transition;
+			position:relative;
+			top:4px;
+			&:hover{
+				@include opacity(.8);
+			}
+		}
 	}
 }
 
 .song-info{
-	@include position(absolute, auto auto 15px 15px);
+	@include position(absolute, auto auto 20px 20px);
 	z-index:1;
 	@include opacity(0);
 	@extend %default-transition;

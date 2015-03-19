@@ -15,6 +15,12 @@
         <link rel="stylesheet" href="/stylesheets/screen.css" media="all">
         <link rel="stylesheet" href="/stylesheets/print.css" media="print">
 
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Web Design & Development from Burlington, VT - Okay Plus" />
+            <meta property="og:description" content="Critical thinking, clean code and responsive design. These are the tools I use to bring digital experiences to life online." />
+        <meta property="og:url" content="http://okaypl.us/" />
+        <meta property="og:site_name" content="Okay Plus" /> 
+
         <script src="/js/vendor/modernizr.js"></script>
 
         <!--[if lt IE 9]>
@@ -23,6 +29,7 @@
 
     </head>
     <body>
+        <div class="mydiv" style="display:block; height:200px; width:200px"></div>
         <script>
             // Include the UserVoice JavaScript SDK (only needed once on a page)
             UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/8uVSlui3fG43JZSuzsZBw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
@@ -67,7 +74,7 @@
             UserVoice.push(['autoprompt', {}]);
         </script>
 
-        <h1>Space.fm</h1>
+        <h1>Floating in Space.fm</h1>
 
         <header class="now-playing">
             <h1>Connecting...</h1>
@@ -81,10 +88,23 @@
         </button>
 
         <div class="song-info">
-            <div id="artwork"></div>
+            <div id="artwork"><img src="/img/testimage.jpg"></div>
             <div class="song-details">
                 <a href="#" class="uploaded" target="_blank">Uploaded by <span></span></a> 
                 <a href="#" class="soundcloud" target="_blank">Listen on Soundcloud</a>
+                <div class="share">
+                    <span>Share:</span>
+                    <a href="#" class="facebook-share" target="_blank">
+                        <svg class="icon icon-facebook">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="#" class="twitter-share" target="_blank">
+                        <svg class="icon icon-twitter">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="spritemap.svg#icon-twitter"></use>
+                    </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
