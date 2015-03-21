@@ -188,6 +188,16 @@ nav{
 }
 
 .song-details{
+	display:none;
+}
+
+@media all and(min-width:900px){
+	.song-details{
+		display:block;
+	}
+}
+
+.song-details{
 	float:left;
 	padding-left:1em;
 	font-size:16px;
