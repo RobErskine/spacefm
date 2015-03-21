@@ -187,15 +187,6 @@ nav{
 	float:left;
 }
 
-.song-details{
-	display:none;
-}
-
-@media all and(min-width:900px){
-	.song-details{
-		display:block;
-	}
-}
 
 .song-details{
 	float:left;
@@ -237,6 +228,16 @@ nav{
 				@include opacity(.8);
 			}
 		}
+	}
+}
+
+.song-info{
+	display:none;
+}
+
+@media all and(min-width:900px){
+	.song-info{
+		display:block;
 	}
 }
 

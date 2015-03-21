@@ -468,18 +468,7 @@ nav {
   float: left;
 }
 
-/* line 190, ../../build/sass/screen.scss */
-.song-details {
-  display: none;
-}
-
-@media all and (min-width: 900px) {
-  /* line 195, ../../build/sass/screen.scss */
-  .song-details {
-    display: block;
-  }
-}
-/* line 200, ../../build/sass/screen.scss */
+/* line 191, ../../build/sass/screen.scss */
 .song-details {
   float: left;
   padding-left: 1em;
@@ -493,7 +482,7 @@ nav {
   bottom: 0px;
   left: 100px;
 }
-/* line 208, ../../build/sass/screen.scss */
+/* line 199, ../../build/sass/screen.scss */
 .song-details > a {
   display: block;
   color: #fff;
@@ -502,27 +491,27 @@ nav {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
 }
-/* line 216, ../../build/sass/screen.scss */
+/* line 207, ../../build/sass/screen.scss */
 .song-details svg {
   width: 20px;
   height: 20px;
   margin-left: 5px;
 }
-/* line 220, ../../build/sass/screen.scss */
+/* line 211, ../../build/sass/screen.scss */
 .song-details svg use {
   fill: #fff;
 }
-/* line 224, ../../build/sass/screen.scss */
+/* line 215, ../../build/sass/screen.scss */
 .song-details a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 227, ../../build/sass/screen.scss */
+/* line 218, ../../build/sass/screen.scss */
 .song-details .share {
   color: rgba(255, 255, 255, 0.2);
   padding-top: 4px;
 }
-/* line 230, ../../build/sass/screen.scss */
+/* line 221, ../../build/sass/screen.scss */
 .song-details .share a {
   display: inline-block;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
@@ -530,13 +519,24 @@ nav {
   position: relative;
   top: 4px;
 }
-/* line 236, ../../build/sass/screen.scss */
+/* line 227, ../../build/sass/screen.scss */
 .song-details .share a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
 
-/* line 243, ../../build/sass/screen.scss */
+/* line 234, ../../build/sass/screen.scss */
+.song-info {
+  display: none;
+}
+
+@media all and (min-width: 900px) {
+  /* line 239, ../../build/sass/screen.scss */
+  .song-info {
+    display: block;
+  }
+}
+/* line 244, ../../build/sass/screen.scss */
 .song-info {
   position: absolute;
   top: auto;
@@ -548,13 +548,13 @@ nav {
   opacity: 0;
 }
 
-/* line 250, ../../build/sass/screen.scss */
+/* line 251, ../../build/sass/screen.scss */
 .song-loaded .song-info {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 254, ../../build/sass/screen.scss */
+/* line 255, ../../build/sass/screen.scss */
 .soundcloud-connect {
   position: absolute;
   top: auto;
@@ -583,7 +583,7 @@ nav {
   -moz-transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out 5s;
 }
-/* line 269, ../../build/sass/screen.scss */
+/* line 270, ../../build/sass/screen.scss */
 .soundcloud-connect svg {
   width: 24px;
   height: 24px;
@@ -593,71 +593,71 @@ nav {
   left: 5px;
   display: block;
 }
-/* line 276, ../../build/sass/screen.scss */
+/* line 277, ../../build/sass/screen.scss */
 .soundcloud-connect svg use {
   fill: rgba(255, 255, 255, 0.33);
 }
 
 @media all and (min-width: 700px) {
-  /* line 285, ../../build/sass/screen.scss */
+  /* line 286, ../../build/sass/screen.scss */
   .soundcloud-connect svg {
     display: inline;
   }
 }
-/* line 292, ../../build/sass/screen.scss */
+/* line 293, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover {
   background-color: #fff;
   color: #f50;
 }
-/* line 295, ../../build/sass/screen.scss */
+/* line 296, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover svg use {
   fill: #f50;
 }
 
-/* line 302, ../../build/sass/screen.scss */
+/* line 303, ../../build/sass/screen.scss */
 .user-registered .controls #like {
   display: inline-block;
 }
-/* line 304, ../../build/sass/screen.scss */
+/* line 305, ../../build/sass/screen.scss */
 .user-registered .controls #like .icon-heart {
   display: block;
 }
-/* line 307, ../../build/sass/screen.scss */
+/* line 308, ../../build/sass/screen.scss */
 .user-registered .controls #like .icon-spinner {
   display: none;
 }
-/* line 310, ../../build/sass/screen.scss */
+/* line 311, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending {
   pointer-events: none;
 }
-/* line 312, ../../build/sass/screen.scss */
+/* line 313, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending .icon-heart {
   display: none;
 }
-/* line 315, ../../build/sass/screen.scss */
+/* line 316, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending .icon-spinner {
   display: block;
 }
-/* line 319, ../../build/sass/screen.scss */
+/* line 320, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked {
   border-color: #f50;
 }
-/* line 321, ../../build/sass/screen.scss */
+/* line 322, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked svg use {
   fill: #f50;
 }
-/* line 326, ../../build/sass/screen.scss */
+/* line 327, ../../build/sass/screen.scss */
 .user-registered .soundcloud-connect {
   pointer-events: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 334, ../../build/sass/screen.scss */
+/* line 335, ../../build/sass/screen.scss */
 .no-touch .controls button:hover {
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
-/* line 336, ../../build/sass/screen.scss */
+/* line 337, ../../build/sass/screen.scss */
 .no-touch .controls button:hover svg use {
   fill: rgba(255, 255, 255, 0.9);
 }
