@@ -162,7 +162,7 @@ function popitup(url,height,width) {
 //  Retrieve tracks from space.fm api and start playing
 // ---------------------------------------------------
   //var oldAPI = "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID;
-  var api = "http://spacefm-api.bestfriendsmakingwebsites.com/";
+  var api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/allsongs";
   var tracks;
 
   var retrieveTracks = function(){
