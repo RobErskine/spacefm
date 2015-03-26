@@ -157,12 +157,41 @@ function popitup(url,height,width) {
   return false;
 }
 
+var getQueryVariable = function(variable){
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+      if(pair[0] === variable){
+          return pair[1];
+      }
+  }
+  return(false);
+};
+
+var isInt = function(value){
+  return !isNaN(value) && 
+  parseInt(Number(value)) == value && 
+  !isNaN(parseInt(value, 10));
+}
 
 // ---------------------------------------------------
 //  Retrieve tracks from space.fm api and start playing
 // ---------------------------------------------------
-  //var oldAPI = "http://api.soundcloud.com/tracks/" + trackID + ".json?client_id=" + clientID;
-  var api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/allsongs";
+  
+var api;
+
+console.log();
+
+if (getQueryVariable('id') != false  && isInt(getQueryVariable('id')) ){
+  api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/"+getQueryVariable('id');
+}
+else{
+   api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/allsongs";
+}
+
+console.log(api);
+
   var tracks;
 
   var retrieveTracks = function(){
@@ -296,8 +325,8 @@ function popitup(url,height,width) {
 
         // update share info
           
-          $('a.twitter-share').attr('href','http://twitter.com/intent/tweet?status=Currently listening to '+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist+'+'+'on http://floatinginspace.fm via @floatingspacefm');
-          $('a.facebook-share').attr('href','http://www.facebook.com/share.php?u=http://floatinginspace.fm&title='+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
+          $('a.twitter-share').attr('href','http://twitter.com/intent/tweet?status=Currently listening to '+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist+'+'+'on http://floatinginspace.fm?id='+data.songs[currentTrack].id+' via @floatingspacefm');
+          $('a.facebook-share').attr('href','http://www.facebook.com/share.php?u=http://floatinginspace.fm?id='+data.songs[currentTrack].id+'&title='+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
           
           $('.share a').on('click',function(){
             event.preventDefault();
