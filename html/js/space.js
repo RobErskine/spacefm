@@ -31,7 +31,13 @@ window.onload = function() {
   paper.view.onFrame = function(event) {
     position = position.add( (mousePos.subtract(position).divide(10) ) );
     var vector = (view.center.subtract(position)).divide(10);
-    moveStars(vector.multiply(2.33));
+    var intensity = 2;
+
+    if(! document.hasFocus()){
+      intensity = (intensity/5);
+    }
+
+    moveStars(vector.multiply(intensity));
     triangle.update();
   };
 
@@ -333,7 +339,7 @@ console.log(api);
             popitup($(this).attr('href'),265,550);
           });
 
-          if(document.hidden){
+          if(! document.hasFocus()){
             songUpdate(data.songs[currentTrack].song, data.songs[currentTrack].artist, track.artwork_url);
           }
 
@@ -375,7 +381,7 @@ console.log(api);
     huey($('#artwork img').attr('src'), function(error, rgb, image) {
       if(rgb == null){
         $('body').css('background-color','rgb(25,25,25)');
-        triangle.changeColor('rgb(255,255,255)');
+        triangle.changeColor('rgb(0,0,0)');
       }
       else{
         var red = rgb[0]
@@ -462,7 +468,7 @@ Triangle.prototype.build = function(a, color) {
                   new paper.Point(-a/2, a * 0.75 / SQRT_3),
                   new paper.Point(a/2, a * 0.75 / SQRT_3)];
 
-  this.flameSize = (a / SQRT_3)*1.2;
+  this.flameSize = (a / SQRT_3)*1;
   var flameSegments = [new paper.Point(0, this.flameSize),
                        new paper.Point(-a/3, a * 0.4 / SQRT_3),
                        new paper.Point(a/3, a * 0.4 / SQRT_3)];
@@ -502,7 +508,6 @@ Triangle.prototype.update = function() {
 
 Triangle.prototype.rotate = function() {
   var angle = paper.view.center.subtract(mousePos).angle - paper.view.center.subtract(this.ship.segments[0].point).angle;
-
   this.group.rotate(angle, paper.view.center);
 };
 
@@ -579,6 +584,7 @@ var moveStars = function(vector) {
     var item = layer.children[i];
     var size = item.bounds.size;
     var length = vector.length / 10 * size.width / 10;
+
     item.position = item.position.add( vector.normalize(length).add(item.data.vector));
     keepInView(item);
   }
