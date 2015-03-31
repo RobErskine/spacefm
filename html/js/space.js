@@ -109,6 +109,7 @@ window.onload = function() {
         console.log(me);
         $('body').addClass('user-registered');
         $('.soundcloud-connect').fadeOut();
+        ga('send', 'event', 'soundcloud connect', me.permalink_url);
         return me; 
       });
     });
@@ -123,6 +124,8 @@ window.onload = function() {
 // ---------------------------------------------------
   function likeSong(trackId){
     SC.get('/me/favorites/'+trackId, function(status,error){
+
+      ga('send', 'event', 'soundcloud favorite', $('.now-playing h1').text());
       
       //IF THE USER HAS LIKED THE SONG
       if(status.user_favorite === true){
@@ -249,6 +252,10 @@ console.log(api);
               $('#like').removeClass('liked');
               $('body').addClass('song-switching');
               playMusic('song finished, playing a new one', currentTrack, data);
+              ga('send', 'pageview', {
+                'page': '/?id='+data.songs[currentTrack].id,
+                'title': data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist
+              });
             },
             onstop: function(){
               currentTrack++;
@@ -256,6 +263,11 @@ console.log(api);
               $('#like').removeClass('liked');
               $('body').addClass('song-switching');
               playMusic('skipping',currentTrack, data);
+              ga('send', 'event', 'skipped', $('.now-playing h1:not(span)').text());
+              ga('send', 'pageview', {
+                'page': '/?id='+data.songs[currentTrack].id,
+                'title': data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist
+              });
             }
           });
 
@@ -317,6 +329,9 @@ console.log(api);
 
           if( track.purchase_url != null){
             $('.song-details').append('<a href="'+track.purchase_url+'" target="_blank" class="purchase">Purchase Song</a>');
+            $('body').on('click','.purchase',function(){
+              ga('send', 'event', 'purchase clicked', data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist + " via " + track.purchase_url);
+            });
           }
           else{
             $('.purchase').remove();
@@ -324,16 +339,30 @@ console.log(api);
 
         // update listen on soundcloud link
           $('.song-details .soundcloud').attr('href',track.permalink_url);
+          $('.song-details .soundcloud').on('click',function(){
+            ga('send', 'event', 'listen on soundcloud', track.permalink_url);
+          }); 
 
         // update artist
           $('.uploaded span').text(track.user.username);
-          $('.uploaded').attr('href',track.user.permalink_url); 
+          $('.uploaded').attr('href',track.user.permalink_url);
+          $('.uploaded').on('click',function(){
+            ga('send', 'event', 'uploaded clicked', track.user.permalink_url);
+          }); 
 
         // update share info
           
           $('a.twitter-share').attr('href','http://twitter.com/intent/tweet?status=Currently listening to '+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist+'+'+'on http://floatinginspace.fm?id='+data.songs[currentTrack].id+' via @floatingspacefm');
           $('a.facebook-share').attr('href','http://www.facebook.com/share.php?u=http://floatinginspace.fm?id='+data.songs[currentTrack].id+'&title='+data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
           
+          $('a.twitter-share').on('click',function(){
+            ga('send', 'event', 'twitter share', data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
+          });
+
+          $('a.facebook-share').on('click',function(){
+            ga('send', 'event', 'facebook share', data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist);
+          });
+
           $('.share a').on('click',function(){
             event.preventDefault();
             popitup($(this).attr('href'),265,550);
