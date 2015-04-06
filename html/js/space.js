@@ -198,8 +198,6 @@ else{
    api = "http://spacefm-api.herokuapp.com/api/songs/allsongs";
 }
 
-console.log(api);
-
   var tracks;
 
   var retrieveTracks = function(){
@@ -318,9 +316,11 @@ console.log(api);
           var albumArt = $('#artwork img');
             if (albumArt[0].complete){
               adjustColors()
+              $("#favicon").attr("href",$('#artwork img').attr('src'));
             }
             else{
               albumArt.load(adjustColors);
+              $("#favicon").attr("href",$('#artwork img').attr('src'));
             }
 
         // get purchase url in there if it exists
