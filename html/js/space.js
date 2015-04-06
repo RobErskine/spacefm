@@ -191,13 +191,11 @@ var isInt = function(value){
   
 var api;
 
-console.log();
-
 if (getQueryVariable('id') != false  && isInt(getQueryVariable('id')) ){
-  api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/"+getQueryVariable('id');
+  api = "http://spacefm-api.herokuapp.com/api/songs/"+getQueryVariable('id');
 }
 else{
-   api = "http://spacefm-api.bestfriendsmakingwebsites.com/api/songs/allsongs";
+   api = "http://spacefm-api.herokuapp.com/api/songs/allsongs";
 }
 
 console.log(api);
