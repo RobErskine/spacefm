@@ -53,7 +53,7 @@ window.onload = function() {
   // sound cloud integration
   SC.initialize({
     client_id: clientID,
-    redirect_uri: 'http://spacefm.personal.dev/callback.html'
+    redirect_uri: 'http://floatinginspace.fm/callback.html'
   });
 
 // ---------------------------------------------------
@@ -89,9 +89,10 @@ window.onload = function() {
     });
 
 
-    //notification.onclick = function () {
-    //  window.open("http://changethistotherightaddress.com");
-    //};
+    notification.onclick = function () {
+      window.focus();
+      this.cancel();
+    };
 
 
     setTimeout(function(){
