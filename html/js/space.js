@@ -57,15 +57,15 @@ window.onload = function() {
   });
 
   if(Modernizr.touch){
-    var playStarted = false;
+    playStarted = false;
     $('body').append('<div class="upgrade touch-play"><div><h2>Tap here to listen to music.</h2><p>When on a touch device, we need you need to tell us to autoplay.</p></div></div>');
-    $('body').on('touchend','.touch-play h2',function(){
+    $('body').on('touchstart','.touch-play h2',function(){
       if(playStarted === false){
         $('.touch-play').fadeOut(function(){$(this).remove();});
         retrieveTracks();
         $('#play-pause').click();
-        playStarted = true;
       }
+      playStarted = true;
     });
   }
 
