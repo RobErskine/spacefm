@@ -58,7 +58,7 @@ window.onload = function() {
 
   if(Modernizr.touch){
     $('body').append('<div class="upgrade touch-play"><div><h2>Tap here to listen to music.</h2><p>When on a touch device, you need to tell us to autoplay.</p></div></div>');
-    $('body').on('touchstart','.touch-play').on('click',function(){
+    $('body').on('click','.touch-play h2').on('click',function(){
       $('.touch-play').fadeOut();
       $('#play-pause').click();
     });
