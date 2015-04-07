@@ -159,8 +159,7 @@ nav{
 		@extend %default-transition;
 	}
 	svg{
-		width:20px;
-		height:20px;
+		@include size(32px);
 		use{
 			@extend %default-transition;
 			fill:rgba(#fff,.6);

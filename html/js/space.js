@@ -56,6 +56,15 @@ window.onload = function() {
     redirect_uri: 'http://floatinginspace.fm/callback.html'
   });
 
+  if(Modernizr.touch){
+    $('body').append('<div class="upgrade touch-play"><div><h2>Tap here to listen to music.</h2><p>When on a touch device, you need to tell us to autoplay.</p></div></div>');
+    $('body').on('click','.touch-play').on('click',function(){
+      $('.touch-play').fadeOut();
+      $('#play-pause').click();
+    });
+  }
+
+
 // ---------------------------------------------------
 //  Random Colors || background color| ship color
 // ---------------------------------------------------
