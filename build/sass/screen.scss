@@ -21,8 +21,30 @@ canvas{
 }
 
 h2,h3,.about,.meta{
-	display:none !important;
+	display:none;
 }
+
+/* FOR LOGO 
+body > h1{
+	font-family:$font-body;
+	font-size:16px;
+	font-weight:700;
+	color:#fffeed;
+	text-transform: uppercase;
+	letter-spacing:0;
+	@include opacity(0);
+	@include position(absolute, 20px auto auto 50%);
+	@include transform(translateX(-50%));
+	@include transition(all 1.5s ease-in-out);
+	padding-top:70px;
+	z-index: 9;
+	img{
+		width:50px;
+		margin:0 auto 20px;
+		@include position(absolute, 0px auto auto 50%);
+		@include transform(translateX(-50%));
+	}
+}*/
 
 body > h1{
 	font-family:$font-body;
@@ -37,6 +59,8 @@ body > h1{
 	@include transition(all 1.5s ease-in-out);
 	z-index: 9;
 }
+
+
 
 body.loaded > h1{
 	@include opacity(1);
@@ -200,7 +224,7 @@ nav{
 		display:block;
 		color:#fff;
 		text-decoration: none;
-		padding-top:12px;
+		padding-top:15px;
 		@include opacity(.2);
 		@extend %default-transition;
 	}
@@ -266,7 +290,7 @@ nav{
 	text-transform:uppercase;
 	outline:none;
 	@include border-radius(12px);
-	@include transition(color .3s ease-in-out,border .3s ease-in-out,background-color .3s ease-in-out, opacity .6s ease-in-out 5s);
+	@include transition(color .3s ease-in-out,border .3s ease-in-out,background-color .3s ease-in-out, opacity .6s ease-in-out);
 	svg{
 		@include size(24px);
 		margin:0 auto;
@@ -337,6 +361,59 @@ nav{
 			svg use{
 				fill:rgba(#fff,.9);
 			}
+		}
+	}
+}
+
+
+
+@include keyframes(upgrade){
+	0%{background-position:100% 0%}
+    50%{background-position:0% 100%}
+    100%{background-position:100% 0%}
+}
+
+.upgrade{
+	@include position(fixed, 0px 0px 0px 0px);
+	z-index:9999;
+	@include linear-gradient(230deg,rgb(65, 90, 84), rgb(92, 60, 60), rgb(117, 79, 114), rgb(53, 80, 115), rgb(139, 107, 33));
+	background-size: 1000% 1000%;
+	@include animation(upgrade 30s ease-in-out infinite);
+	color:#fff;
+	text-align:center;
+	& > div{
+		@include position(absolute, 50% auto auto 50%);
+		@include transform(translateX(-50%) translateY(-50%));
+		width:100%;
+		max-width:500px;
+		padding:20px;
+	}
+	h2{
+		font-family:$font-headline;
+		font-size:32px;
+		display:block;
+		text-transform:uppercase;
+		margin-bottom:.6em;
+	}
+	p{
+		font-family:$font-body;
+		font-size:18px;
+		margin-bottom:1em;
+		line-height:1.34;
+	}
+	a{
+		color:#fff;
+		text-decoration: none;
+		color:rgba(#fff,.66);
+		padding-bottom:4px;
+	}
+}
+
+@media all and(min-width:600px){
+	.upgrade{
+		h2{
+			font-size:44px;
+			margin-bottom:.5em;
 		}
 	}
 }

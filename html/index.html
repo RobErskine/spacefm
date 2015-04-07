@@ -19,16 +19,16 @@
 
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Floating in Space" />
-        <meta property="og:description" content="Alternative chillwave Music to drift in. Showcasing ambient, synthwave, smooth electronic, and deep house music to listen to throughout the day." />
+        <meta property="og:description" content="Alternative chillwave music to drift away on. Showcasing ambient, synthwave, smooth electronic, and deep house music to listen to throughout the day." />
         <meta property="og:url" content="http://floatinginspace.fm" />
         <meta property="og:site_name" content="Floating in Space" />
         <meta property="og:image" content="http://floatinginspace.fm/img/share.png" /> 
 
-        <meta property="og:title" content="Floating in Space"/>
-        <meta property="og:url" content="http://floatinginspace.fm"/>
-        <meta property="og:image" content="http://floatinginspace.fm/img/share.png"/>
-        <meta property="og:site_name" content="floating in space"/>
-        <meta property="og:description" content="Alternative chillwave Music to drift in. Showcasing ambient, synthwave, smooth electronic, and deep house music to listen to throughout the day."/>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@floatingspacefm">
+        <meta name="twitter:title" content="Floating in Space">
+        <meta name="twitter:description" content="Alternative chillwave music to drift away on. Showcasing ambient, synthwave, smooth electronic, and deep house music to listen to throughout the day.">
+        <meta name="twitter:image:src" content="http://floatinginspace.fm/img/share.png">
 
         <script src="/js/vendor/modernizr.js"></script>
 
@@ -38,7 +38,8 @@
 
     </head>
     <body>
-        <h1>Floating in Space.fm</h1>
+        <h1>
+        Floating in Space.fm</h1>
 
         <header class="now-playing">
             <h1>Connecting...</h1>
@@ -52,7 +53,7 @@
         </button>
 
         <div class="song-info">
-            <div id="artwork"><img src="/img/testimage.jpg"></div>
+            <div id="artwork"><img src=""></div>
             <div class="song-details">
                 <a href="#" class="uploaded" target="_blank">Uploaded by <span></span></a> 
                 <a href="#" class="soundcloud" target="_blank">Listen on Soundcloud</a>
@@ -107,7 +108,12 @@
         <script src="http://connect.soundcloud.com/sdk.js"></script>
         <script src="/js/vendor/paper.js"></script>
         <script src="/js/plugins.js"></script>
-        <script src="/js/space.js"></script>
-        <script src="/js/main.js"></script>
+        <script type="text/javascript">
+            Modernizr.load({
+              test: Modernizr.canvas &&  Modernizr.audio,
+              yep : '/js/space.js',
+              nope: '/js/fallback.js'
+            });
+        </script>
     </body>
 </html>

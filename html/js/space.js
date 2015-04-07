@@ -46,7 +46,7 @@ window.onload = function() {
 // ---------------------------------------------------
   $('body').addClass('loaded');
   $('.now-playing h1').fitText(1.2);
-  triangle.changeColor("#ffffff","0.8");
+  triangle.changeColor("#000","0.8");
 
   var clientID = '3869b2e3b6e85b175e114b4e19042775';
 
@@ -107,9 +107,8 @@ window.onload = function() {
   function authenticate(){
     SC.connect(function() {
       SC.get('/me', function(me) { 
-        console.log(me);
         $('body').addClass('user-registered');
-        $('.soundcloud-connect').fadeOut();
+        $('.soundcloud-connect').text('Now connected to Soundcloud as '+me.username+'.');
         ga('send', 'event', 'soundcloud connect', me.permalink_url);
         return me; 
       });
@@ -295,8 +294,8 @@ else{
           $('#artist').empty().html('<a data-popup="true" href="' + track.user.permalink_url + '">' + track.user.username + '</a>');
 
           setTimeout(function(){
-            $('header h1').html(data.songs[currentTrack].song).fitText(1.2);
-            $('header h1').append('<span>'+data.songs[currentTrack].artist+'</span>');
+            $('.now-playing h1').html(data.songs[currentTrack].song);
+            $('.now-playing h1').append('<span>'+data.songs[currentTrack].artist+'</span>');
             $('body').removeClass('song-switching');
           },600);
 
@@ -409,7 +408,7 @@ else{
     huey($('#artwork img').attr('src'), function(error, rgb, image) {
       if(rgb == null){
         $('body').css('background-color','rgb(25,25,25)');
-        triangle.changeColor('rgb(0,0,0)');
+        triangle.changeColor('rgb(255,255,255)');
       }
       else{
         var red = rgb[0]
