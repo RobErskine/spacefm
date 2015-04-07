@@ -372,7 +372,7 @@ nav{
     100%{background-position:100% 0%}
 }
 
-.upgrade{
+.upgrade,.touch-play{
 	@include position(fixed, 0px 0px 0px 0px);
 	z-index:9999;
 	@include linear-gradient(230deg,rgb(65, 90, 84), rgb(92, 60, 60), rgb(117, 79, 114), rgb(53, 80, 115), rgb(139, 107, 33));
@@ -405,6 +405,20 @@ nav{
 		text-decoration: none;
 		color:rgba(#fff,.66);
 		padding-bottom:4px;
+	}
+	button{
+		@include appearance(none);
+		background-color:transparent;
+		border:2px solid rgba(#fff,1);
+		color:rgba(#fff,1);
+		font-size:17px;
+		padding:8px 20px 10px;
+		margin-bottom:15px;
+		line-height:2;
+		font-family:$font-body;
+		text-transform:uppercase;
+		outline:none;
+		@include border-radius(12px);
 	}
 }
 

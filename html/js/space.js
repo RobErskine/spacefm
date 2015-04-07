@@ -58,8 +58,8 @@ window.onload = function() {
 
   if(Modernizr.touch){
     playStarted = false;
-    $('body').append('<div class="upgrade touch-play"><div><h2>Tap here to listen to music.</h2><p>When on a touch device, we need you need to tell us to autoplay.</p></div></div>');
-    $('body').on('touchstart','.touch-play h2',function(){
+    $('body').append('<div class="upgrade touch-play"><div><button>Tap here to listen to music.</button><p>When on a touch device, we need you need to tell us to autoplay.</p></div></div>');
+    $('body').on('click','.touch-play button',function(){
       if(playStarted === false){
         $('.touch-play').fadeOut(function(){$(this).remove();});
         retrieveTracks();

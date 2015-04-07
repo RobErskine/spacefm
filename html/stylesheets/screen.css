@@ -436,60 +436,60 @@ nav {
 }
 /* line 161, ../../build/sass/screen.scss */
 .controls svg {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
 }
-/* line 164, ../../build/sass/screen.scss */
+/* line 163, ../../build/sass/screen.scss */
 .controls svg use {
   fill: rgba(255, 255, 255, 0.6);
 }
-/* line 170, ../../build/sass/screen.scss */
+/* line 169, ../../build/sass/screen.scss */
 .controls #play-pause .icon-play {
   display: none;
 }
-/* line 173, ../../build/sass/screen.scss */
+/* line 172, ../../build/sass/screen.scss */
 .controls #play-pause .icon-pause {
   display: block;
   padding: 2px;
 }
-/* line 178, ../../build/sass/screen.scss */
+/* line 177, ../../build/sass/screen.scss */
 .controls #play-pause.paused .icon-play {
   display: block;
 }
-/* line 181, ../../build/sass/screen.scss */
+/* line 180, ../../build/sass/screen.scss */
 .controls #play-pause.paused .icon-pause {
   display: none;
 }
-/* line 187, ../../build/sass/screen.scss */
+/* line 186, ../../build/sass/screen.scss */
 .controls #skip .icon-spinner {
   display: none;
 }
-/* line 190, ../../build/sass/screen.scss */
+/* line 189, ../../build/sass/screen.scss */
 .controls #skip .icon-skip {
   display: block;
 }
-/* line 194, ../../build/sass/screen.scss */
+/* line 193, ../../build/sass/screen.scss */
 .controls #like {
   display: none;
 }
 
 @media all and (min-width: 800px) {
-  /* line 201, ../../build/sass/screen.scss */
+  /* line 200, ../../build/sass/screen.scss */
   .controls button {
     padding: 10px;
   }
-  /* line 204, ../../build/sass/screen.scss */
+  /* line 203, ../../build/sass/screen.scss */
   .controls svg {
     width: 26px;
     height: 26px;
   }
 }
-/* line 210, ../../build/sass/screen.scss */
+/* line 209, ../../build/sass/screen.scss */
 #artwork {
   float: left;
 }
 
-/* line 215, ../../build/sass/screen.scss */
+/* line 214, ../../build/sass/screen.scss */
 .song-details {
   float: left;
   padding-left: 1em;
@@ -503,7 +503,7 @@ nav {
   bottom: 0px;
   left: 100px;
 }
-/* line 223, ../../build/sass/screen.scss */
+/* line 222, ../../build/sass/screen.scss */
 .song-details > a {
   display: block;
   color: #fff;
@@ -512,27 +512,27 @@ nav {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
   opacity: 0.2;
 }
-/* line 231, ../../build/sass/screen.scss */
+/* line 230, ../../build/sass/screen.scss */
 .song-details svg {
   width: 20px;
   height: 20px;
   margin-left: 5px;
 }
-/* line 235, ../../build/sass/screen.scss */
+/* line 234, ../../build/sass/screen.scss */
 .song-details svg use {
   fill: #fff;
 }
-/* line 239, ../../build/sass/screen.scss */
+/* line 238, ../../build/sass/screen.scss */
 .song-details a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 242, ../../build/sass/screen.scss */
+/* line 241, ../../build/sass/screen.scss */
 .song-details .share {
   color: rgba(255, 255, 255, 0.2);
   padding-top: 4px;
 }
-/* line 245, ../../build/sass/screen.scss */
+/* line 244, ../../build/sass/screen.scss */
 .song-details .share a {
   display: inline-block;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
@@ -540,24 +540,24 @@ nav {
   position: relative;
   top: 4px;
 }
-/* line 251, ../../build/sass/screen.scss */
+/* line 250, ../../build/sass/screen.scss */
 .song-details .share a:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
 
-/* line 258, ../../build/sass/screen.scss */
+/* line 257, ../../build/sass/screen.scss */
 .song-info {
   display: none;
 }
 
 @media all and (min-width: 900px) {
-  /* line 263, ../../build/sass/screen.scss */
+  /* line 262, ../../build/sass/screen.scss */
   .song-info {
     display: block;
   }
 }
-/* line 268, ../../build/sass/screen.scss */
+/* line 267, ../../build/sass/screen.scss */
 .song-info {
   position: absolute;
   top: auto;
@@ -569,13 +569,13 @@ nav {
   opacity: 0;
 }
 
-/* line 275, ../../build/sass/screen.scss */
+/* line 274, ../../build/sass/screen.scss */
 .song-loaded .song-info {
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
 
-/* line 279, ../../build/sass/screen.scss */
+/* line 278, ../../build/sass/screen.scss */
 .soundcloud-connect {
   position: absolute;
   top: auto;
@@ -604,7 +604,7 @@ nav {
   -moz-transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out;
   transition: color 0.3s ease-in-out, border 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.6s ease-in-out;
 }
-/* line 294, ../../build/sass/screen.scss */
+/* line 293, ../../build/sass/screen.scss */
 .soundcloud-connect svg {
   width: 24px;
   height: 24px;
@@ -614,71 +614,71 @@ nav {
   left: 5px;
   display: block;
 }
-/* line 301, ../../build/sass/screen.scss */
+/* line 300, ../../build/sass/screen.scss */
 .soundcloud-connect svg use {
   fill: rgba(255, 255, 255, 0.33);
 }
 
 @media all and (min-width: 700px) {
-  /* line 310, ../../build/sass/screen.scss */
+  /* line 309, ../../build/sass/screen.scss */
   .soundcloud-connect svg {
     display: inline;
   }
 }
-/* line 317, ../../build/sass/screen.scss */
+/* line 316, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover {
   background-color: #fff;
   color: #f50;
 }
-/* line 320, ../../build/sass/screen.scss */
+/* line 319, ../../build/sass/screen.scss */
 .no-touch .soundcloud-connect:hover svg use {
   fill: #f50;
 }
 
-/* line 327, ../../build/sass/screen.scss */
+/* line 326, ../../build/sass/screen.scss */
 .user-registered .controls #like {
   display: inline-block;
 }
-/* line 329, ../../build/sass/screen.scss */
+/* line 328, ../../build/sass/screen.scss */
 .user-registered .controls #like .icon-heart {
   display: block;
 }
-/* line 332, ../../build/sass/screen.scss */
+/* line 331, ../../build/sass/screen.scss */
 .user-registered .controls #like .icon-spinner {
   display: none;
 }
-/* line 335, ../../build/sass/screen.scss */
+/* line 334, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending {
   pointer-events: none;
 }
-/* line 337, ../../build/sass/screen.scss */
+/* line 336, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending .icon-heart {
   display: none;
 }
-/* line 340, ../../build/sass/screen.scss */
+/* line 339, ../../build/sass/screen.scss */
 .user-registered .controls #like.pending .icon-spinner {
   display: block;
 }
-/* line 344, ../../build/sass/screen.scss */
+/* line 343, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked {
   border-color: #f50;
 }
-/* line 346, ../../build/sass/screen.scss */
+/* line 345, ../../build/sass/screen.scss */
 .user-registered .controls #like.liked svg use {
   fill: #f50;
 }
-/* line 351, ../../build/sass/screen.scss */
+/* line 350, ../../build/sass/screen.scss */
 .user-registered .soundcloud-connect {
   pointer-events: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 359, ../../build/sass/screen.scss */
+/* line 358, ../../build/sass/screen.scss */
 .no-touch .controls button:hover {
   border: 2px solid rgba(255, 255, 255, 0.9);
 }
-/* line 361, ../../build/sass/screen.scss */
+/* line 360, ../../build/sass/screen.scss */
 .no-touch .controls button:hover svg use {
   fill: rgba(255, 255, 255, 0.9);
 }
@@ -727,8 +727,8 @@ nav {
     background-position: 100% 0%;
   }
 }
-/* line 376, ../../build/sass/screen.scss */
-.upgrade {
+/* line 375, ../../build/sass/screen.scss */
+.upgrade, .touch-play {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -746,8 +746,8 @@ nav {
   color: #fff;
   text-align: center;
 }
-/* line 384, ../../build/sass/screen.scss */
-.upgrade > div {
+/* line 383, ../../build/sass/screen.scss */
+.upgrade > div, .touch-play > div {
   position: absolute;
   top: 50%;
   right: auto;
@@ -762,31 +762,52 @@ nav {
   max-width: 500px;
   padding: 20px;
 }
-/* line 391, ../../build/sass/screen.scss */
-.upgrade h2 {
+/* line 390, ../../build/sass/screen.scss */
+.upgrade h2, .touch-play h2 {
   font-family: "Contrail One", helvetica, arial, sans-serif;
   font-size: 32px;
   display: block;
   text-transform: uppercase;
   margin-bottom: .6em;
 }
-/* line 398, ../../build/sass/screen.scss */
-.upgrade p {
+/* line 397, ../../build/sass/screen.scss */
+.upgrade p, .touch-play p {
   font-family: "Roboto Condensed", helvetica, arial, sans-serif;
   font-size: 18px;
   margin-bottom: 1em;
   line-height: 1.34;
 }
-/* line 404, ../../build/sass/screen.scss */
-.upgrade a {
+/* line 403, ../../build/sass/screen.scss */
+.upgrade a, .touch-play a {
   color: #fff;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.66);
   padding-bottom: 4px;
 }
+/* line 409, ../../build/sass/screen.scss */
+.upgrade button, .touch-play button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  font-size: 17px;
+  padding: 8px 20px 10px;
+  margin-bottom: 15px;
+  line-height: 2;
+  font-family: "Roboto Condensed", helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  outline: none;
+  -moz-border-radius: 12px;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
 
 @media all and (min-width: 600px) {
-  /* line 414, ../../build/sass/screen.scss */
+  /* line 427, ../../build/sass/screen.scss */
   .upgrade h2 {
     font-size: 44px;
     margin-bottom: .5em;
