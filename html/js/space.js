@@ -278,16 +278,14 @@ else{
                 'page': '/?id='+data.songs[currentTrack].id,
                 'title': data.songs[currentTrack].song + " by " + data.songs[currentTrack].artist
               });
+            },
+            whileplaying: function(){
+              currentPosition = sound.position;
+              duration = sound.duration;
+              percent = (currentPosition / duration) * 100;
+              $('.current-time').css('width',percent+'%');
             }
           });
-
-          setInterval(function(){
-            var current = sound.position;
-            var total = track.duration;
-            var percent = (current / total) * 100;
-
-            $('.current-time').css('width',percent+'%');
-          },100);
 
           $('body').addClass('song-switching');
 

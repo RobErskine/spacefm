@@ -817,7 +817,7 @@ nav {
 .timer {
   width: 100%;
   display: block;
-  height: 6px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   top: auto;
@@ -837,5 +837,5 @@ nav {
   transition: all 0.1s linear;
   width: 0px;
   display: block;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
 }
