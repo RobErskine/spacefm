@@ -430,3 +430,18 @@ nav{
 		}
 	}
 }
+
+.timer{
+	width:100%;
+	display:block;
+	height:6px;
+	background-color:rgba(#fff,.2);
+	@include position(absolute, auto 0px 0px 0px);
+	.current-time{
+		@include position(absolute, 0px auto 0px 0px);
+		@include transition(all .1s linear);
+		width:0px;
+		display:block;
+		background-color:rgba(#fff,.6);
+	}
+}

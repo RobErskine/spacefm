@@ -281,6 +281,14 @@ else{
             }
           });
 
+          setInterval(function(){
+            var current = sound.position;
+            var total = track.duration;
+            var percent = (current / total) * 100;
+
+            $('.current-time').css('width',percent+'%');
+          },100);
+
           $('body').addClass('song-switching');
 
           // play and pause
