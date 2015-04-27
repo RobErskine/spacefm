@@ -48,7 +48,7 @@ body > h1{
 
 body > h1{
 	font-family:$font-body;
-	font-size:16px;
+	font-size:14px;
 	font-weight:700;
 	color:#fffeed;
 	text-transform: uppercase;
@@ -58,6 +58,14 @@ body > h1{
 	@include transform(translateX(-50%));
 	@include transition(all 1.5s ease-in-out);
 	z-index: 9;
+	width:100%;
+	text-align:center;
+}
+
+@media all and(min-width:700px){
+	body > h1{
+		font-size:16px;
+	}
 }
 
 
@@ -276,6 +284,7 @@ nav{
 }
 
 .soundcloud-connect{
+	display:none;
 	@include position(absolute, auto 20px 19px auto);
 	@include appearance(none);
 	z-index:9;
@@ -306,6 +315,7 @@ nav{
 
 @media all and(min-width:700px){
 	.soundcloud-connect{
+		display:block;
 		svg{
 			display:inline;
 		}
@@ -399,6 +409,8 @@ nav{
 		font-size:18px;
 		margin-bottom:1em;
 		line-height:1.34;
+		float:left;
+		width:100%;
 	}
 	a{
 		color:#fff;

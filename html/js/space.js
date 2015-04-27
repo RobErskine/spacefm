@@ -22,6 +22,7 @@ window.onload = function() {
 
   // Draw the BG
   var background = new Path.Rectangle(view.bounds);
+  var colors = [];
   
   buildStars();
   triangle = new Triangle(50, '#191919');
@@ -29,23 +30,41 @@ window.onload = function() {
   paper.view.draw();
 
   paper.view.onFrame = function(event) {
+    if($('#play-pause').hasClass('paused')){
+      starIntensity(event,0.1);
+    }
+    else{
+      starIntensity(event,2);
+    }
+  };
+
+  var starIntensity = function(event,intensity){
     position = position.add( (mousePos.subtract(position).divide(10) ) );
     var vector = (view.center.subtract(position)).divide(10);
-    var intensity = 2;
 
     if(! document.hasFocus()){
       intensity = (intensity/5);
     }
 
+    if($('#play-paused').hasClass('paused')){
+      intensity = 0;
+    }
+
     moveStars(vector.multiply(intensity));
     triangle.update();
-  };
+  }
 
 // ---------------------------------------------------
 //  Intitiate App with Soundcloud
 // ---------------------------------------------------
   $('body').addClass('loaded');
-  $('.now-playing h1').fitText(1.2);
+  if($(window).width() < 700){
+     $('.now-playing h1').fitText(0.6);
+  }
+  else{
+    $('.now-playing h1').fitText(1.2);
+  }
+ 
   triangle.changeColor("#000","0.8");
 
   var clientID = '3869b2e3b6e85b175e114b4e19042775';
@@ -58,7 +77,7 @@ window.onload = function() {
 
   if(Modernizr.touch){
     playStarted = false;
-    $('body').append('<div class="upgrade touch-play"><div><button>Tap here to listen to music.</button><p>When on a touch device, we need you need to tell us to autoplay.</p></div></div>');
+    $('body').append('<div class="upgrade touch-play"><div><p>FLOATINGINSPACE.FM</p><button>Tap here to listen to music.</button><p>When on a touch device, we need you need to tell us to autoplay.</p></div></div>');
     $('body').on('click','.touch-play button',function(){
       if(playStarted === false){
         $('.touch-play').fadeOut(function(){$(this).remove();});
@@ -68,21 +87,6 @@ window.onload = function() {
       playStarted = true;
     });
   }
-
-
-// ---------------------------------------------------
-//  Random Colors || background color| ship color
-// ---------------------------------------------------
-  var colors = [
-    ['#1f2335','#627e87'],
-    ['#25221f','#e06e1e'],
-    ['#0f2444','#0759a6'],
-    ['#251a46','#7d7bb7'],
-    ['#181928','#6f8d88'],
-    ['#102138','#eec15f'],
-    ['#0b3941','#eae8ab'],
-    ['#2f242e','#513861']
-  ];
 
 // ---------------------------------------------------
 //  Chrome Push Notifications
@@ -172,6 +176,10 @@ window.onload = function() {
   $('#like').on("click",function(){
     $(this).addClass('pending');
     likeSong($('#like').data("trackId"));
+  });
+
+  $('button').on('click',function(){
+    $(this).blur();
   });
 
 function popitup(url,height,width) {
@@ -291,7 +299,6 @@ else{
 
           // play and pause
           $('#play-pause').on("click",function(){
-            console.log("pausing/playing");
             sound.togglePause();
             $(this).toggleClass("paused");
           });
@@ -484,15 +491,6 @@ else{
 // ---------------------------------------------------
 //  Helpers
 // ---------------------------------------------------
-window.onresize = function() {
-  project.clear();
-  D = Math.max(paper.view.getSize().width, paper.view.getSize().height);
-  // Draw the BG
-  var background = new Path.Rectangle(view.bounds);
-
-  buildStars();
-};
-
 var random = function(minimum, maximum) {
   return Math.round(Math.random() * (maximum - minimum) + minimum);
 };
