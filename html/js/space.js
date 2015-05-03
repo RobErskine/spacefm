@@ -243,21 +243,19 @@ else{
 //  Update dom when song ends / gets skipped
 // ---------------------------------------------------
   var playNewTrack = function(data, currentTrack){ // play that funky music space boy
-    SC.get('/resolve', { url: data.songs[currentTrack].songUrl }, function(track) {
+    SC.get('/resolve', { url: data.songs[currentTrack].songUrl }, function(track,error) {
       /*SC.get('/tracks/' + track.id + '/comments', function(comments) {
         for (var i = 0; i < comments.length; i++) {
           console.log('Someone said: ' + comments[i].body);
         }
       });*/
 
-      console.log(track);
-
       // debugging in case you want to listen to your own music ;)
       if(debugging === true){
         sound.mute();
       }
 
-      if(track === null){ 
+      if(error !== null){ 
         currentTrack++;
         playMusic('error playing song, skipping', currentTrack, data);
       }
